@@ -1,4 +1,4 @@
-class Homepage < ApplicationController
+class HomepageController < ApplicationController
 
   def index
 
