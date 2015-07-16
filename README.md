@@ -3,5 +3,5 @@
 # Team Members:
 Ben Cohen
 Julia Castro
-Danny Tek
+Denny Tek
 Taylor Hang 
