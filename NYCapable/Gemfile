@@ -30,8 +30,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use nokogiri for service status txt
 gem 'nokogiri'
 
-
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
