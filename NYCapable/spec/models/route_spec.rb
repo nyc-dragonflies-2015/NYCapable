@@ -1,5 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe Route, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Route do
+
+  describe "Methods" do
+
+    describe "note_cleaner method" do
+      it "returns a clean string" do
+        string = "<a></a><br><br>hi/\n/&nbsp;&#149;"
+        expect(Route.note_cleaner(string)).to eq("hi//")
+      end
+    end
+  end
 end
