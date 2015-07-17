@@ -16,6 +16,13 @@ ActiveRecord::Schema.define(version: 20150717144355) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "route_stations", force: :cascade do |t|
+    t.integer  "route_id"
+    t.integer  "station_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "routes", force: :cascade do |t|
     t.string   "route_id"
     t.string   "agency_id"
@@ -29,6 +36,21 @@ ActiveRecord::Schema.define(version: 20150717144355) do
     t.string   "service_status",   default: ""
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+  end
+
+  create_table "stations", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "accessible"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "ramp"
+    t.boolean  "elevator"
+    t.string   "notes"
+    t.boolean  "transferable"
+    t.string   "transferable_to"
+    t.float    "distance_to"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
