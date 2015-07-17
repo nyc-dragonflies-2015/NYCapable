@@ -5,13 +5,7 @@ class Route < ActiveRecord::Base
 
   require 'open-uri'
 
-  def self.note_cleaner(path)
-    path.gsub(/<\/?[^>]+>/, '').gsub("\n", '').gsub("&nbsp;", '').gsub("&#149;", '')
-  end
-
-  def self.update_status
-    @routes = Route.all
-
+  def self.doc_parse
     @doc = Nokogiri::XML(open('http://web.mta.info/status/serviceStatus.txt'))
 
     @current_status = []
@@ -22,6 +16,16 @@ class Route < ActiveRecord::Base
       "notes" => note_cleaner(@doc.xpath('//text')[i].children.text())
         }]
     end
+  end
+
+  def self.note_cleaner(path)
+    path.gsub(/<\/?[^>]+>/, '').gsub("\n", '').gsub("&nbsp;", '').gsub("&#149;", '')
+  end
+
+
+  def self.update_status
+    @routes = Route.all
+    Route.doc_parse
 
     @current_status.each do |route|
       if route[0].keys[0] == "123"
