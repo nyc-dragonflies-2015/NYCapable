@@ -1,6 +1,5 @@
 name,accessible,latitude,longitude,ramp,elevator,notes,transferable,transferable_to,distance_to
 14th Street,TRUE,40.739882,-74.002546,TRUE,TRUE,,
-14th Street,TRUE,40.739882,-74.002546,TRUE,TRUE,,
 14th Street - Union Square,TRUE,40.734812,-73.990589,TRUE,TRUE,,
 34th Street - Herald Square,TRUE,40.749679,-73.988221,FALSE,TRUE,,
 34th Street - Penn Station,TRUE,40.751073,-73.991131,TRUE,TRUE,,
@@ -78,7 +77,7 @@ Jackson Hts-Roosevelt Av,TRUE,40.746637,-73.890831,FALSE,TRUE,,
 Jamaica-179 St,TRUE,40.712591,-73.783322,FALSE,TRUE,,
 Jamaica Center/Parsons-Archer,TRUE,40.70232,-73.79988,FALSE,TRUE,,
 Jamaica-Van Wyck,TRUE,40.70141,-73.816452,FALSE,TRUE,,
-Junction Blvd TRUE,40.749255,-73.869333,FALSE,TRUE,,
+Junction Blvd,TRUE,40.749255,-73.869333,FALSE,TRUE,,
 Kew Gardens-Union Turnpike,TRUE,40.714051,-73.830892,FALSE,TRUE,,
 Middle Village-Metropolitan Av,TRUE,40.712265,-73.888626,FALSE,FALSE,"Street level entrance"
 Queens Plaza,TRUE,40.748919,-73.937523,FALSE,TRUE,,

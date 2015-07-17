@@ -33,3 +33,12 @@ CSV.foreach('db/stations.txt',
       distance_to: args[:distance_to]
     )
 end
+
+CSV.foreach('db/route_stations.txt',
+  :headers => true,
+  :header_converters => :symbol) do |args|
+    RouteStation.create(
+      route_id: args[:route_id],
+      station_id: args[:station_id],
+    )
+end
