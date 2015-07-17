@@ -2,6 +2,7 @@ class Route < ActiveRecord::Base
     has_many :route_stations
   has_many :stations, through: :route_stations
 
+
   require 'open-uri'
 
   def self.note_cleaner(path)
@@ -73,5 +74,4 @@ class Route < ActiveRecord::Base
       end
     end
   end
-
 end
