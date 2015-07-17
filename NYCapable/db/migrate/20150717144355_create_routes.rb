@@ -10,6 +10,7 @@ class CreateRoutes < ActiveRecord::Migration
       t.string :route_url
       t.string :route_color
       t.string :route_text_color
+      t.string :service_status, default: ''
 
       t.timestamps null: false
     end
