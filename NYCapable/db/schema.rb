@@ -26,8 +26,9 @@ ActiveRecord::Schema.define(version: 20150717144355) do
     t.string   "route_url"
     t.string   "route_color"
     t.string   "route_text_color"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "service_status",   default: ""
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
 end
