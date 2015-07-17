@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716184807) do
+ActiveRecord::Schema.define(version: 20150716191940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "line_stations", force: :cascade do |t|
+    t.integer  "line_id"
+    t.integer  "station_id"
+    t.boolean  "accessible"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "lines", force: :cascade do |t|
     t.string   "name"
@@ -28,15 +36,17 @@ ActiveRecord::Schema.define(version: 20150716184807) do
 
   create_table "stations", force: :cascade do |t|
     t.string   "name"
+    t.boolean  "accessible"
     t.float    "latitude"
     t.float    "longitude"
-    t.boolean  "accessible"
+    t.boolean  "ramp"
+    t.boolean  "elevator"
+    t.string   "notes"
     t.boolean  "transferable"
-    t.integer  "line_id"
-    t.string   "elevator_status"
-    t.string   "escalator_status"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "transferable_to"
+    t.float    "distance_to",     default: 0.0
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
 end
