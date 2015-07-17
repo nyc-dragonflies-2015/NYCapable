@@ -1,10 +1,5 @@
 <% @route.each do |line|%>
 
-  <div class="line", style= "background-color: #<%=line.route_color%>">
-
-    <h3><%=line.route_long_name%> <%=line.route_short_name%></h3>
-    <%=line.route_desc%></br>
-
-  </div>
+    <%= render 'single_route', line: line %>
 
 <%end%>
