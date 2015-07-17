@@ -1,4 +1,5 @@
 class ServiceStatusController < ApplicationController
+  require 'open-uri'
 
   def note_cleaner(path)
     path.gsub(/<\/?[^>]+>/, '').gsub("\n", '').gsub("&nbsp;", '').gsub("&#149;", '')
