@@ -4,12 +4,13 @@
     <button type="button", class="testing", data-stations="<%= @closest_stations.to_json %>", data-user="<%= @bens_location.to_json %>", onclick="calcRoute()">Click Me!</button><br>
     Station closest to me:
 
-    <h2><%= @closest_stations[0].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[0].name %>  || <%= (@closest_stations[0].distance_to).round(2) %> miles</h2>
 
+    <h2><%= @closest_stations[0].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[0].name %>  || <%= (@closest_stations[0].distance_to).round(2) %> miles</h2>
     <div id="map-canvas"></div>
     <div id="directionsPanel"></div>
     <div id="elevation_chart"></div>
     <br>
+    <h2><%= @closest_stations[1].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[1].name %>  || <%= (@closest_stations[1].distance_to).round(2) %> miles</h2>
     <div id="map-canvas2"></div>
     <div id="bensDirectionsPanel"></div>
     <div id="bens_elevation_chart"></div>
