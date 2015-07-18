@@ -31,14 +31,14 @@ describe Route do
     describe ".doc_parse" do
         it "should return parsed data" do
           expect(Route.doc_parse(Route.txt_read).count).to eq(10)
+          expect(Route.doc_parse(Route.txt_read).count).to_not eq(3)
         end
     end
 
-    describe ".update_status" do
-        it "write to AR database with updated status" do
-          @current_status = [[{"7"=>{"status"=>"GOOD SERVICE", "notes"=>""}}]]
-          allow(Route).to receive(:update_status).and_return({something: 'good'})
-        end
-    end
+    # describe ".update_status" do
+        # it "write to AR database with updated status" do
+        #   Route.create(id: 9, route_id: "7", agency_id: "MTA NYCT", route_short_name: "7", route_long_name: "Flushing Local", route_desc: "Trains operate between Main St-Flushing, Queens, a...", route_type: "1", route_url: "http://web.mta.info/nyct/service/pdf/t7cur.pdf", route_color: "B933AD", route_text_color: nil, service_status: "GOOD SERVICE", created_at: "2015-07-17 15:20:11", updated_at: "2015-07-17 19:54:45", service_status_note: "")
+        #   @current_status = [[{"7"=>{"status"=>"GOOD SERVICE", "notes"=>""}}]]
+    # end
   end
 end
