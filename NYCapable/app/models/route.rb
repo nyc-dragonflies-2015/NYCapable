@@ -19,6 +19,10 @@ class Route < ActiveRecord::Base
 
   def self.note_cleaner(path)
     path.gsub(/<\/?[^>]+>/, '').gsub("\n", '').gsub("&nbsp;", '').gsub("&#149;", '')
+    .gsub("                    Planned Work                                      ", '')
+    .gsub("                                                  Planned Work                                      ", ' ')
+    .gsub("                              ", '')
+    .gsub("                ", '')
   end
 
 
