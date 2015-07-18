@@ -1,7 +1,11 @@
 <!--  <div style='width: 800px;'>
     <div id="directions" style='width: 800px; height: 400px;'></div>
 </div> -->
-    <button type="button" onclick="calcRoute();drawPath(); bensDrawPath()" >Click Me!</button>
+    <button type="button", class="testing", data-stations="<%= @closest_stations.to_json %>", data-user="<%= @bens_location.to_json %>", onclick="calcRoute();drawPath(); bensDrawPath()">Click Me!</button><br>
+    Station closest to me:
+
+    <h2><%= @closest_stations[0].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[0].name %>  || <%= (@closest_stations[0].distance_to).round(2) %> miles</h2>
+
     <div id="map-canvas"></div>
     <div id="directionsPanel"></div>
     <div id="elevation_chart"></div>
