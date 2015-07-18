@@ -18,12 +18,6 @@ feature 'visit root page' do
 
   scenario 'user should see station options when submitting address' do
     visit root_path
-    click_button("submit-address-button")
-    expect(page).to have_css('div.closest-station-option')
-  end
-
-  scenario 'user should see station options when submitting address' do
-    visit root_path
     #address input field needs the id 'submit-address-form'
     fill_in "submit-address-form",:with => '48 Wall Street, New York, NY'
     click_button("submit-address-button")
