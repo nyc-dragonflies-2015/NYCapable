@@ -13,10 +13,5 @@ describe RoutesController do
       expect(response).to render_template("index")
     end
 
-  # describe "GET show" do
-
-  #   end
-  # end
-
   end
 end
