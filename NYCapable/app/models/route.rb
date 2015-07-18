@@ -2,7 +2,6 @@ class Route < ActiveRecord::Base
     has_many :route_stations
   has_many :stations, through: :route_stations
 
-
   require 'open-uri'
 
   def self.doc_parse
@@ -20,6 +19,10 @@ class Route < ActiveRecord::Base
 
   def self.note_cleaner(path)
     path.gsub(/<\/?[^>]+>/, '').gsub("\n", '').gsub("&nbsp;", '').gsub("&#149;", '')
+    .gsub("                    Planned Work                                      ", '')
+    .gsub("                                                  Planned Work                                      ", ' ')
+    .gsub("                              ", '')
+    .gsub("                ", '')
   end
 
 
@@ -79,3 +82,4 @@ class Route < ActiveRecord::Base
     end
   end
 end
+

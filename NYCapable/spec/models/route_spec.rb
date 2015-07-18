@@ -17,5 +17,23 @@ describe Route do
       end
 
     end
+
+    describe "doc_parse method" do
+
+      it "should return status updates" do
+        # allow(Route.doc_parse).to recieve
+      end
+
+    end
+
+    describe "status_update method" do
+
+      it "write to AR database with updated status" do
+        # @current_status = [[{"123"=>{"status"=>"GOOD SERVICE", "notes"=>""}}]]
+
+      end
+
+    end
+
   end
 end
