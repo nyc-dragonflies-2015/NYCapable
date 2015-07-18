@@ -1,5 +1,11 @@
-<% @route.each do |line|%>
-
-    <%= render 'single_route', line: line %>
-
-<%end%>
+<!--  <div style='width: 800px;'>
+    <div id="directions" style='width: 800px; height: 400px;'></div>
+</div> -->
+    <button type="button" onclick="calcRoute();drawPath(); bensDrawPath()" >Click Me!</button>
+    <div id="map-canvas"></div>
+    <div id="directionsPanel"></div>
+    <div id="elevation_chart"></div>
+    <br>
+    <div id="map-canvas2"></div>
+    <div id="bensDirectionsPanel"></div>
+    <div id="bens_elevation_chart"></div>
