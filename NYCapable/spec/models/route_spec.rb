@@ -4,8 +4,11 @@ describe Route do
 
   describe "Methods" do
 
-    describe "note_cleaner method" do
+    # it 'should respond to route_stations' do
+    #   expect(FactoryGirl.create(:route)).to respond_to :route_stations
+    # end
 
+    describe "note_cleaner" do
       it "returns a clean string" do
         string = "<a></a>                              <br><br>                hi/\n/&nbsp;&#149;                    Planned Work                                                                                        Planned Work                                      "
         expect(Route.note_cleaner(string)).to eq("hi//")
@@ -15,13 +18,13 @@ describe Route do
         string = "<a></a>                              <br><br>                hi/\n/&nbsp;&#149;                    Planned Work                                                                                        Planned Work                                      "
         expect(Route.note_cleaner(string)).not_to eq("hi/dfjfj/")
       end
-
     end
 
-    describe "doc_parse method" do
+    describe ".doc_parse" do
 
-      it "should return status updates" do
-        # allow(Route.doc_parse).to recieve
+      it "@doc should return a file" do
+        expect(@doc = Nokogiri::XML(open('http://web.mta.info/status/serviceStatus.txt')).class).to eq(Nokogiri::XML::Document)
+        expect(@doc = Nokogiri::XML(open('http://web.mta.info/status/serviceStatus.txt'))).to_not eq(nil)
       end
 
     end
