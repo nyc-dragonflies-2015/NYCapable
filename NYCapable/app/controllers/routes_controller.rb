@@ -13,6 +13,7 @@ class RoutesController < ApplicationController
     end
     @closest_stations = Station.order(distance_to: :asc).limit(5)
     @route = Route.all.order("route_id ASC")
+    Route.update_status
   end
 
   def show
