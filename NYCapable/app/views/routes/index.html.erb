@@ -5,12 +5,17 @@
     Station closest to me:
 
 
-    <h2><%= @closest_stations[0].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[0].name %>  || <%= (@closest_stations[0].distance_to).round(2) %> miles</h2>
-    <div id="map-canvas"></div>
+    <h2 class="stationName"><%= @closest_stations[0].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[0].name %>  || <%= (@closest_stations[0].distance_to).round(2) %> miles</h2>
+    <div class="station" id="station1Map"></div>
     <div id="directionsPanel"></div>
     <div id="elevation_chart"></div>
+    station1Map
+    station1Directions
+    station1Elevation
+
     <br>
-    <h2><%= @closest_stations[1].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[1].name %>  || <%= (@closest_stations[1].distance_to).round(2) %> miles</h2>
-    <div id="map-canvas2"></div>
+
+    <h2 class="stationName"><%= @closest_stations[1].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[1].name %>  || <%= (@closest_stations[1].distance_to).round(2) %> miles</h2>
+    <div class="station" id="map-canvas2"></div>
     <div id="bensDirectionsPanel"></div>
     <div id="bens_elevation_chart"></div>
