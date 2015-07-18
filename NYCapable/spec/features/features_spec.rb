@@ -10,6 +10,12 @@ feature 'visit root page' do
     visit root_path
     expect(page).to have_selector("input")
     # need to account for google form format
+    expect(page).to have_text("Enter Your Location")
+    expect(page).to have_text("Find A Station")
+  end
+  scenario 'user expects input field on root page' do
+    visit root_path
+    expect(rendered).to have_selector("input", :type => "text", :value => "")
   end
 
   scenario 'user should not see station options on initial visit' do
@@ -25,13 +31,19 @@ feature 'visit routes page' do
     expect(page).to have_content('Station closest to me:')
   end
 
-  xscenario 'user should see station options when submitting address' do
+
+  scenario 'user should see station options when submitting address' do
     visit root_path
-    #address input field needs the id 'submit-address-form'
-    fill_in "submit-address-form",:with => '48 Wall Street, New York, NY'
     click_button("submit-address-button")
     expect(page).to have_css('div.closest-station-option')
   end
+
+  scenario 'user should see station options when submitting address' do
+    visit root_path
+    click_button("submit-address-button")
+    expect(page).to have_css('div.closest-station-option')
+  end
+
 
   xscenario 'maps should be hidden until station is clicked' do
 
@@ -48,7 +60,9 @@ feature 'visit routes page' do
   xscenario 'stations should include distance' do
 
   end
+
 end
+
 
 feature 'visit other_resource page' do
   scenario 'visits other_resource page' do
