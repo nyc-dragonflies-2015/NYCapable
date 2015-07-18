@@ -9,13 +9,14 @@ class Route < ActiveRecord::Base
   end
 
   def self.doc_parse(file)
-    @current_status = []
+    current_status = []
     (0..9).each do |i|
-      @current_status << [file.xpath("//name")[i].children.text() => {
+      current_status << [file.xpath("//name")[i].children.text() => {
       "status" => file.xpath('//status')[i].children.text(),
       "notes" => note_cleaner(file.xpath('//text')[i].children.text())
         }]
     end
+    return current_status
   end
 
   def self.note_cleaner(path)
@@ -29,7 +30,7 @@ class Route < ActiveRecord::Base
 
   def self.update_status
     Route.txt_read
-    Route.doc_parse(@doc)
+    @current_status = Route.doc_parse(@doc)
 
     @current_status.each do |route|
       if route[0].keys[0] == "123"
