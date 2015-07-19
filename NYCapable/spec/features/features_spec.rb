@@ -59,13 +59,51 @@ feature 'visit other_resource page' do
   scenario 'visits other_resource page to view map' do
     visit other_resources_path
     expect(page).to have_css("img")
-    end
+  end
 
-  # scenario 'visits other_resource page to view map' do
-  #   visit other_resources_path
-  #   find(:css, "div.subway-record-map").should be_visible
+  scenario 'user sees MTA Resources' do
+    visit other_resources_path
+    expect(page).to have_content("MTA Resources")
+  end
 
-  #   end
+  xscenario 'user sees revealed MTA Resources links' do
+    visit other_resources_path
+    click_link("MTA Resources")
+    expect(page).to have_content("mta.info | Accessibility")
+  end
+
+  scenario 'user sees NYC Resources' do
+    visit other_resources_path
+    expect(page).to have_content("NYC Resources")
+  end
+
+  xscenario 'user sees revealed NYC Resources links' do
+    visit other_resources_path
+    click_link("NYC Resources")
+    expect(page).to have_content("mta.info | Accessibility")
+  end
+
+  scenario 'user sees Government Resources' do
+    visit other_resources_path
+    expect(page).to have_content("Government Resources")
+  end
+
+  xscenario 'user sees revealed Government Resources links' do
+    visit other_resources_path
+    click_link("NYC Resources")
+    expect(page).to have_content("mta.info | Accessibility")
+  end
+
+  scenario 'user sees Route Information (pdf)' do
+    visit other_resources_path
+    expect(page).to have_content("Route Information (pdf)")
+  end
+
+  xscenario 'user sees revealed Government Resources links' do
+    visit other_resources_path
+    click_link("NYC Resources")
+    expect(page).to have_content("mta.info | Accessibility")
+  end
 end
 
 
