@@ -1,0 +1,16 @@
+html {
+    /* This image will be displayed fullscreen */
+    background:url('http://www.mrwallpaper.com/wallpapers/new-york-metro.jpg') no-repeat center center;
+
+    /* Ensure the html element always takes up the full height of the browser window */
+    min-height:100%;
+
+    /* The Magic */
+    background-size:cover;
+}
+
+body {
+    /* Workaround for some mobile browsers */
+    min-height:100%;
+    padding-top: 25px;
+}
