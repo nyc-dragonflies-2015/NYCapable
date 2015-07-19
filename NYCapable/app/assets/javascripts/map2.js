@@ -38,6 +38,7 @@ var station5;
 google.load('visualization', '1', {packages: ['columnchart']});
 
 
+
 function plotElevation(results, status){
   if(status != google.maps.ElevationStatus.OK){
     return;
@@ -326,3 +327,5 @@ function station4PlotElevation(results, status){
     titleY: 'Elevation (m)'
   });
 }
+
+
