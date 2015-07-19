@@ -154,11 +154,11 @@ function calcRoute(){
   });
 
 drawPath(userLocation,station1);
-bensCalcRoute(userLocation,station2);
-bensDrawPath(userLocation,station2);
-station3CalcRoute(userLocation,station3);
-station3DrawPath(userLocation,station3);
-station4CalcRoute(userLocation,station4);
+// bensCalcRoute(userLocation,station2);
+// bensDrawPath(userLocation,station2);
+// station3CalcRoute(userLocation,station3);
+// station3DrawPath(userLocation,station3);
+// station4CalcRoute(userLocation,station4);
 }
 
 
