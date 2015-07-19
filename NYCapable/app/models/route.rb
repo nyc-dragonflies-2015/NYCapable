@@ -1,20 +1,22 @@
 class Route < ActiveRecord::Base
-    has_many :route_stations
+  has_many :route_stations
   has_many :stations, through: :route_stations
 
   require 'open-uri'
 
-  def self.doc_parse
+  def self.txt_read
     @doc = Nokogiri::XML(open('http://web.mta.info/status/serviceStatus.txt'))
+  end
 
-    @current_status = []
-
+  def self.doc_parse(file)
+    current_status = []
     (0..9).each do |i|
-      @current_status << [@doc.xpath("//name")[i].children.text() => {
-      "status" => @doc.xpath('//status')[i].children.text(),
-      "notes" => note_cleaner(@doc.xpath('//text')[i].children.text())
+      current_status << [file.xpath("//name")[i].children.text() => {
+      "status" => file.xpath('//status')[i].children.text(),
+      "notes" => note_cleaner(file.xpath('//text')[i].children.text())
         }]
     end
+    return current_status
   end
 
   def self.note_cleaner(path)
@@ -27,8 +29,8 @@ class Route < ActiveRecord::Base
 
 
   def self.update_status
-    @routes = Route.all
-    Route.doc_parse
+    Route.txt_read
+    @current_status = Route.doc_parse(@doc)
 
     @current_status.each do |route|
       if route[0].keys[0] == "123"
