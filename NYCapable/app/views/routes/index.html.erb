@@ -2,13 +2,9 @@
     <div id="directions" style='width: 800px; height: 400px;'></div>
 </div> -->
 
-<input id="pac-input" class="controls" type="text" placeholder="Search Box">
-<br>
-    <button type="button", class="testing", data-stations="<%= @closest_stations.to_json %>", data-user="<%= @bens_location.to_json %>", onclick="calcRoute()">Click Me!</button><br>
-    Station closest to me:
-   <p> <% @closest_stations.each do |station| %>
-        <%= station.name %> ,
-        <% end  %></p>
+
+    <h1>Station closest to me:</h1>
+
 
 
     <h2 class="stationName"><%= @closest_stations[0].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[0].name %>  || <%= (@closest_stations[0].distance_to).round(2) %> miles</h2>
