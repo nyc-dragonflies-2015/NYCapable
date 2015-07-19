@@ -1,39 +1,42 @@
-<h1>Other Resources</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 subway-record-map">
+      <h1>Other Resources</h1>
+      <%= image_tag 'https://subwayrecord.files.wordpress.com/2015/03/ada-subway-map-w-key.jpg?w=850&h=1024'%>
+      <p>source: <%=link_to "The MTA’s Accessibility Gap", 'https://subwayrecord.wordpress.com/2015/03/26/the-mtas-accessibility-gap/'%></p>
+    </div>
+
+    <div class="col-xs-6 col-md-4 resource-links">
+      <h2>MTA Resources</h2>
+      <ul>
+        <li><%=link_to 'mta.info | Accessibility','http://web.mta.info/accessibility/'%></li>
+        <li><%=link_to 'MTA Guide to Accessible Transit','http://web.mta.info/accessibility/stations.htm'%></li>
+        <li><%=link_to 'mta.info | Customer Service Phone Numbers', 'http://web.mta.info/mta/phone.htm'%></li>
+        <li><%=link_to 'mta.info | Guide to Access-A-Ride Service', 'http://web.mta.info/nyct/paratran/guide.htm'%></li>
+        <li><%=link_to 'MTA Subways Metro Cards', 'http://www.nyc.gov/html/mopd/html/programs/transportation.shtml#mta'%>
+            <p>People with qualifying disabilities are eligible for a Half-Fare Reduced-Fare Metro Card</p>
+        </li>
+      </ul>
+
+      <h2>NYC Resources</h2>
+        <ul>
+          <li><%=link_to 'NYC Mayor\'s Office For People with Disabilities', 'http://www.nyc.gov/html/mopd/html/home/home.shtml'%></li>
+        </ul>
 
 
-<div class="subway-record-map">
-  <%= image_tag 'https://subwayrecord.files.wordpress.com/2015/03/ada-subway-map-w-key.jpg?w=850&h=1024'%>
-<p>source: <%=link_to"The MTA’s Accessibility Gap", 'https://subwayrecord.wordpress.com/2015/03/26/the-mtas-accessibility-gap/'%>
+      <h2>Government Resources</h2>
+        <ul>
+          <li><%=link_to 'ADA.gov', 'http://www.ada.gov/'%></li>
+          <li><%=link_to 'Disability.gov’s Guide to Transportation', 'https://www.disability.gov/resource/disability-govs-guide-transportation/'%></li>
+        </ul>
+
+      <h2>Route Information (pdf) </h2>
+        <ul>
+          <%@route.each do |line|%>
+            <%=link_to "#{line.route_id} | #{line.route_long_name}", line.route_url%>
+            <br>
+          <%end%>
+        </ul>
+      </div>
+    </div>
 </div>
-
-
-<h2>MTA Resources</h2>
-  <ul>
-    <li><%=link_to 'mta.info | Accessibility','http://web.mta.info/accessibility/'%></li>
-    <li><%=link_to 'MTA Guide to Accessible Transit','http://web.mta.info/accessibility/stations.htm'%></li>
-    <li><%=link_to 'mta.info | Customer Service Phone Numbers', 'http://web.mta.info/mta/phone.htm'%></li>
-    <li><%=link_to 'mta.info | Guide to Access-A-Ride Service', 'http://web.mta.info/nyct/paratran/guide.htm'%></li>
-    <li><%=link_to 'MTA Subways Metro Cards', 'http://www.nyc.gov/html/mopd/html/programs/transportation.shtml#mta'%>
-        <p>People with qualifying disabilities are eligible for a Half-Fare Reduced-Fare Metro Card</p>
-    </li>
-  </ul>
-
-<h2>NYC Resources</h2>
-  <ul>
-    <li><%=link_to 'NYC Mayor\'s Office For People with Disabilities', 'http://www.nyc.gov/html/mopd/html/home/home.shtml'%></li>
-  </ul>
-
-
-<h2>Government Resources</h2>
-  <ul>
-    <li><%=link_to 'ADA.gov', 'http://www.ada.gov/'%></li>
-    <li><%=link_to 'Disability.gov’s Guide to Transportation', 'https://www.disability.gov/resource/disability-govs-guide-transportation/'%></li>
-  </ul>
-
-<h2>Route Information (pdf) </h2>
-  <ul>
-    <%@route.each do |line|%>
-      <%=link_to "#{line.route_id} | #{line.route_long_name}", line.route_url%>
-      <br>
-    <%end%>
-  </ul>
