@@ -1,119 +1,115 @@
-<!--  <div style='width: 800px;'>
-    <div id="directions" style='width: 800px; height: 400px;'></div>
-</div> -->
-
+<div class="routes-page">
 <div class="display-container">
+  <span class="closest-stations-summary"><h2>Stations closest to me:<h2>
+     <p> <% @closest_stations.each do |station| %>
+          <%station.name %>
+          <% end  %></p>
+
+  <button type="button", class="testing", data-stations="<%= @closest_stations.to_json %>", data-user="<%= @bens_location.to_json %>", onclick="calcRoute()">Click Me!</button>
+  </span>
+
+        <div class="panel-group" id="accordion">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                          <h3 class="stationName"><%= @closest_stations[0].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[0].name %>|| <%= (@closest_stations[0].distance_to).round(2) %> miles</h3>
+                      </a>
+                    </h4>
+                </div>
+
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+
+                      <div class="station" id="station1Map"></div>
+                      <div id="station1DirectionsPanel"></div>
+                      <div id="station1Elevation"></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+
+                          <h3 class="stationName"><%= @closest_stations[1].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[1].name %>  || <%= (@closest_stations[1].distance_to).round(2) %> miles</h3>
+
+                      </a>
+                    </h4>
+                </div>
+
+                <div id="collapseTwo" class="panel-collapse collapse in">
+
+                    <div class="panel-body">
+
+                                  <div class="station" id="station2Map"></div>
+
+                                  <div id="bensDirectionsPanel"></div>
+                                  <div id="bens_elevation_chart"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+
+                          <h3 class="stationName"><%= @closest_stations[2].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[2].name %>  || <%= (@closest_stations[2].distance_to).round(2) %> miles</h3>
+
+                      </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse in">
+                    <div class="panel-body">
+
+                          <div class="station" id="station3Map"></div>
+                          <div id="station3DirectionsPanel"></div>
+                          <div id="station3Elevation"></div>
 
 
-<span class="closest-stations-summary"><h2>Stations closest to me:<h2>
-   <p> <% @closest_stations.each do |station| %>
-        <%station.name %>
-        <% end  %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
 
-<button type="button", class="testing", data-stations="<%= @closest_stations.to_json %>", data-user="<%= @bens_location.to_json %>", onclick="calcRoute()">Click Me!</button>
-</span>
+                           <h3 class="stationName"><%= @closest_stations[3].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[3].name %>  || <%= (@closest_stations[3].distance_to).round(3) %> miles</h3>
+                       </a>
+                    </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse in">
+                    <div class="panel-body">
 
-  <div class="bs-example">
-      <div class="panel-group" id="accordion">
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                  <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                        <h3 class="stationName"><%= @closest_stations[0].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[0].name %>|| <%= (@closest_stations[0].distance_to).round(2) %> miles</h3>
-                    </a>
-                  </h4>
-              </div>
+                          <div class="station" id="station4Map"></div>
+                          <div id="station4DirectionsPanel"></div>
+                          <div id="station4Elevation"></div>
 
-              <div id="collapseOne" class="panel-collapse collapse in">
-                  <div class="panel-body">
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                          <h3 class="stationName"><%= @closest_stations[4].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[4].name %>  || <%= (@closest_stations[4].distance_to).round(3) %> miles</h3>
+                      </a>
+                    </h4>
+                </div>
 
-                    <div class="station" id="station1Map"></div>
-                    <div id="station1DirectionsPanel"></div>
-                    <div id="station1Elevation"></div>
+                <div id="collapseFive" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                              <div class="station" id="station5Map"></div>
+                              <div id="station5DirectionsPanel"></div>
+                              <div id="station5Elevation"></div>
+                    </div>
+                </div>
+            </div>
+    </div>
 
-                  </div>
-              </div>
-          </div>
-
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                  <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-
-                        <h3 class="stationName"><%= @closest_stations[1].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[1].name %>  || <%= (@closest_stations[1].distance_to).round(2) %> miles</h3>
-
-                    </a>
-                  </h4>
-              </div>
-
-              <div id="collapseTwo" class="panel-collapse collapse">
-
-                  <div class="panel-body">
-
-                                <div class="station" id="map-canvas2"></div>
-                                <div id="bensDirectionsPanel"></div>
-                                <div id="bens_elevation_chart"></div>
-
-                  </div>
-              </div>
-          </div>
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                  <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-
-                        <h3 class="stationName"><%= @closest_stations[2].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[2].name %>  || <%= (@closest_stations[2].distance_to).round(2) %> miles</h3>
-
-                    </a>
-                  </h4>
-              </div>
-              <div id="collapseThree" class="panel-collapse collapse">
-                  <div class="panel-body">
-
-                        <div class="station" id="station3Map"></div>
-                        <div id="station3DirectionsPanel"></div>
-                        <div id="station3Elevation"></div>
-
-
-                  </div>
-              </div>
-          </div>
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                  <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-
-                         <h3 class="stationName"><%= @closest_stations[3].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[3].name %>  || <%= (@closest_stations[3].distance_to).round(3) %> miles</h3>
-                     </a>
-                  </h4>
-              </div>
-              <div id="collapseFour" class="panel-collapse collapse">
-                  <div class="panel-body">
-
-                        <div class="station" id="station4Map"></div>
-                        <div id="station4DirectionsPanel"></div>
-                        <div id="station4Elevation"></div>
-
-                  </div>
-              </div>
-          </div>
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                  <h4 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-                        <h3 class="stationName"><%= @closest_stations[3].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[3].name %>  || <%= (@closest_stations[3].distance_to).round(3) %> miles</h3>
-                    </a>
-                  </h4>
-              </div>
-
-              <div id="collapseFive" class="panel-collapse collapse">
-                  <div class="panel-body">
-                            <div class="station" id="station4Map"></div>
-                            <div id="station4DirectionsPanel"></div>
-                            <div id="station4Elevation"></div>
-                  </div>
-              </div>
-          </div>
-  </div>
 </div>
-
+>>>>>>> got all maps to render

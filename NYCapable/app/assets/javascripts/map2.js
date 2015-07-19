@@ -182,7 +182,7 @@ function bensCalcRoute(person,place){
     center: person
   };
 
-  bensMap = new google.maps.Map(document.getElementById('map-canvas2'), bensMapOptions);
+  bensMap = new google.maps.Map(document.getElementById('station2Map'), bensMapOptions);
 
   bensDirectionsService.route(bensRequest, function(result, status){
     bensDirectionsDisplay = new google.maps.DirectionsRenderer();
