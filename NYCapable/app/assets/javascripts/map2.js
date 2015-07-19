@@ -32,7 +32,13 @@ var station4Map;
 var station4Elevator;
 var station4Chart;
 
+//STATION 5 VARS
 var station5;
+var station5DirectionsDisplay;
+var station5DirectionsService = new google.maps.DirectionsService();
+var station5Map;
+var station5Elevator;
+var station5Chart;
 
 
 google.load('visualization', '1', {packages: ['columnchart']});
@@ -159,6 +165,7 @@ bensDrawPath(userLocation,station2);
 station3CalcRoute(userLocation,station3);
 station3DrawPath(userLocation,station3);
 station4CalcRoute(userLocation,station4);
+station5CalcRoute(userLocation,station5);
 }
 
 
@@ -231,7 +238,6 @@ function station3DrawPath(person,place){
 }
 
 function station3PlotElevation(results, status){
-  debugger
   if(status != google.maps.ElevationStatus.OK){
     return;
   }
@@ -301,7 +307,6 @@ function station4DrawPath(person,place){
 }
 
 function station4PlotElevation(results, status){
-  debugger
   if(status != google.maps.ElevationStatus.OK){
     return;
   }
@@ -321,6 +326,74 @@ function station4PlotElevation(results, status){
 
   document.getElementById('station4Elevation').style.display = 'block';
   station4Chart.draw(data, {
+    height: 150,
+    legend: 'none',
+    titleY: 'Elevation (m)'
+  });
+}
+
+// ________________________STATION 5___________________________________________________________________________
+
+function station5CalcRoute(person,place) {
+  var station5Request = {
+    origin: person,
+    destination: place,
+    travelMode: google.maps.TravelMode.WALKING,
+    // provideRouteAlternatives: true
+  };
+
+   var station5MapOptions = {
+    zoom: 8,
+    center: person
+  };
+
+  station5Map = new google.maps.Map(document.getElementById('station5Map'), station5MapOptions);
+
+  station5DirectionsService.route(station5Request, function(result, status){
+    station5DirectionsDisplay = new google.maps.DirectionsRenderer();
+    if (status == google.maps.DirectionsStatus.OK){
+        station5DirectionsDisplay.setMap(station5Map);
+        station5DirectionsDisplay.setDirections(result);
+      station5DirectionsDisplay.setPanel(document.getElementById("station5DirectionsPanel"));
+    }
+  });
+  station5DrawPath(person,place);
+}
+
+function station5DrawPath(person,place){
+  station5Elevator = new google.maps.ElevationService();
+
+  station5Chart = new google.visualization.ColumnChart(document.getElementById('station5Elevation'));
+
+  var station5Path = [person, place];
+
+  var pathRequest = {
+    path: station5Path,
+    samples: 200
+  }
+  station5Elevator.getElevationAlongPath(pathRequest, station5PlotElevation)
+}
+
+function station5PlotElevation(results, status){
+  if(status != google.maps.ElevationStatus.OK){
+    return;
+  }
+
+  var elevations = results;
+
+  var elevationPath = [];
+  for(var i = 0; i < results.length; i++){
+    elevationPath.push(elevations[i].location);
+  }
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'Sample');
+  data.addColumn('number', 'Elevation');
+  for(var i = 0; i < results.length; i++){
+    data.addRow(['', elevations[i].elevation]);
+  }
+
+  document.getElementById('station5Elevation').style.display = 'block';
+  station5Chart.draw(data, {
     height: 150,
     legend: 'none',
     titleY: 'Elevation (m)'
