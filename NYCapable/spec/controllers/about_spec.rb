@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe AboutController do
-
   describe "GET index" do
     it 'should get the index' do
       get :index
@@ -13,6 +12,4 @@ describe AboutController do
       expect(response).to render_template("index")
     end
   end
-
-
 end
