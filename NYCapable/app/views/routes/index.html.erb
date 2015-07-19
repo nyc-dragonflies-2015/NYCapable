@@ -9,6 +9,7 @@
    <p> <% @closest_stations.each do |station| %>
         <%station.name %>
         <% end  %></p>
+
 <button type="button", class="testing", data-stations="<%= @closest_stations.to_json %>", data-user="<%= @bens_location.to_json %>", onclick="calcRoute()">Click Me!</button>
 </span>
 
@@ -18,7 +19,7 @@
               <div class="panel-heading">
                   <h4 class="panel-title">
                       <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                        <h2 class="stationName"><%= @closest_stations[0].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[0].name %>  || <%= (@closest_stations[0].distance_to).round(2) %> miles</h2>
+                        <h3 class="stationName"><%= @closest_stations[0].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[0].name %>|| <%= (@closest_stations[0].distance_to).round(2) %> miles</h3>
                     </a>
                   </h4>
               </div>
@@ -39,12 +40,14 @@
                   <h4 class="panel-title">
                       <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
 
-                        <h2 class="stationName"><%= @closest_stations[1].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[1].name %>  || <%= (@closest_stations[1].distance_to).round(2) %> miles</h2>
+                        <h3 class="stationName"><%= @closest_stations[1].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[1].name %>  || <%= (@closest_stations[1].distance_to).round(2) %> miles</h3>
 
                     </a>
                   </h4>
               </div>
+
               <div id="collapseTwo" class="panel-collapse collapse">
+
                   <div class="panel-body">
 
                                 <div class="station" id="map-canvas2"></div>
@@ -59,7 +62,7 @@
                   <h4 class="panel-title">
                       <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
 
-                        <h2 class="stationName"><%= @closest_stations[2].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[2].name %>  || <%= (@closest_stations[2].distance_to).round(2) %> miles</h2>
+                        <h3 class="stationName"><%= @closest_stations[2].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[2].name %>  || <%= (@closest_stations[2].distance_to).round(2) %> miles</h3>
 
                     </a>
                   </h4>
@@ -80,7 +83,7 @@
                   <h4 class="panel-title">
                       <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
 
-                         <h2 class="stationName"><%= @closest_stations[3].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[3].name %>  || <%= (@closest_stations[3].distance_to).round(3) %> miles</h2>
+                         <h3 class="stationName"><%= @closest_stations[3].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[3].name %>  || <%= (@closest_stations[3].distance_to).round(3) %> miles</h3>
                      </a>
                   </h4>
               </div>
@@ -98,10 +101,11 @@
               <div class="panel-heading">
                   <h4 class="panel-title">
                       <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-                        <h2 class="stationName"><%= @closest_stations[3].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[3].name %>  || <%= (@closest_stations[3].distance_to).round(3) %> miles</h2>
+                        <h3 class="stationName"><%= @closest_stations[3].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[3].name %>  || <%= (@closest_stations[3].distance_to).round(3) %> miles</h3>
                     </a>
                   </h4>
               </div>
+
               <div id="collapseFive" class="panel-collapse collapse">
                   <div class="panel-body">
                             <div class="station" id="station4Map"></div>
@@ -110,8 +114,6 @@
                   </div>
               </div>
           </div>
-
-
   </div>
 </div>
 
