@@ -14,15 +14,15 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                          <h3 class="stationName"><%= @closest_stations[0].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[0].name %>|| <%= (@closest_stations[0].distance_to).round(2) %> miles</h3>
+                          <h3 class="stationName1"><%= @closest_stations[0].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[0].name %>|| <%= (@closest_stations[0].distance_to).round(2) %> miles</h3>
                       </a>
                     </h4>
                 </div>
 
                 <div id="collapseOne" class="panel-collapse collapse in">
-                    <div class="panel-body">
+                    <div class="panel-body-1">
 
-                      <div class="station" id="station1Map"></div>
+                      <div class="station" id="station1Map" ></div>
                       <div id="station1DirectionsPanel"></div>
                       <div id="station1Elevation"></div>
 
@@ -112,4 +112,4 @@
     </div>
 
 </div>
->>>>>>> got all maps to render
+
