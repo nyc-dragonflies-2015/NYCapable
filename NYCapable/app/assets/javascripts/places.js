@@ -1,12 +1,4 @@
-// $('#autocomplete').on('submit', function() {
-//     alert("hi");
-//     $.ajax({
-//     type: 'GET',
-//     url: '/routes',
-//     dataType: 'script',
-//     data: { subject: subject.val(), body: body.val() }
-//     });
-// })
+
 
 function places() {
 
