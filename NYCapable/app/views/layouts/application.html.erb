@@ -2,16 +2,37 @@
 <html>
 <head>
   <title>NYCapable</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <script src="https://www.google.com/jsapi"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhj6JZdjctXQe4usKeIyGur33v3-Tgglo"></script>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
-
-  <%= yield %>
-
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to "NYCapable", root_path, class: "navbar-brand" %>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Other Resources", other_resources_path %></li>
+            <li><%= link_to "About", about_index_path %></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+  </nav>
+  <br>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>

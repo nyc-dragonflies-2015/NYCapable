@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
+
   resources :routes, only: [:index, :show]
 
   resources :about, only: [:index]
