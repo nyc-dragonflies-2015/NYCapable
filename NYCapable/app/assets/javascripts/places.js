@@ -1,7 +1,17 @@
+// $('#autocomplete').on('submit', function() {
+//     alert("hi");
+//     $.ajax({
+//     type: 'GET',
+//     url: '/routes',
+//     dataType: 'script',
+//     data: { subject: subject.val(), body: body.val() }
+//     });
+// })
+
 function places() {
 
   var markers = [];
-  var map = new google.maps.Map(document.getElementById('station1Map'), {
+  var map = new google.maps.Map(document.getElementById('gulia'), {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
 
@@ -14,14 +24,10 @@ function places() {
       document.getElementById('pac-input'));
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
+  debugger
   var searchBox = new google.maps.places.SearchBox((input));
-
   google.maps.event.addListener(searchBox, 'places_changed', function() {
-    var places = searchBox.getPlaces();
 
-    var locationOfUser = [places[0].geometry.location["A"],places[0].geometry.location["F"]]
-    console.log(locationOfUser)
-    return locationOfUser
 
     if (places.length == 0) {
       return;
@@ -60,5 +66,6 @@ function places() {
     var bounds = map.getBounds();
     searchBox.setBounds(bounds);
   });
-
 }
+
+google.maps.event.addDomListener(window, 'ready', places)
