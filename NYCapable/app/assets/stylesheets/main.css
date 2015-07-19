@@ -1,17 +1,17 @@
-html { height: 100%; }
-body { height: 100%; margin: 0; padding: 0; }
-
-
 .station {
-  height: 50%;
-  width: 30%;
+  height: 500px !important;
+  width: 100%;
 }
 
-.station {
-  height: 50%;
-  width: 30%;
+#station2Map {
+  height: 500px !important;
+  width: 100%;
 }
 
+#station3Map.station {
+  height: 500px !important;
+  width: 100%;
+}
 
 .controls {
   margin-top: 16px;
@@ -61,3 +61,13 @@ body { height: 100%; margin: 0; padding: 0; }
     left: 0px;
     width: 99%;
   }
+=======
+#station4Map.station {
+  height: 500px !important;
+  width: 100%;
+}
+
+#station5Map.station {
+  height: 500px !important;
+  width: 100%;
+}
