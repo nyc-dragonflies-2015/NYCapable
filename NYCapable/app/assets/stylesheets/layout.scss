@@ -1,0 +1,24 @@
+html {
+    background: url('http://www.mrwallpaper.com/wallpapers/new-york-metro.jpg') center center;
+    min-height: 100%;
+    background-size: cover;
+}
+
+body {
+    min-height:100%;
+    padding-top: 25px;
+}
+
+.google-form {
+  /*Looks more centered on image but not centered to browser*/
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+  /*Looks centered to browser but not to image*/
+  /*position: absolute;
+  margin: -50px 0 0 -50px;
+  left: 50%;
+  top: 50%;*/
+}
