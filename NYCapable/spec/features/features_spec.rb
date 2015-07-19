@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 feature 'visit root page' do
-  xscenario 'user visits root page' do
+  scenario 'user visits root page' do
     visit root_path
+    expect(page).to have_selector("input[placeholder='Enter Address']")
     # need to wait to know what to call on google place autocomplete
   end
 
@@ -15,6 +16,11 @@ feature 'visit root page' do
   scenario 'user should not see station options on initial visit' do
     visit root_path
     expect(page).to have_no_css('div.closest-station-option')
+  end
+
+  scenario 'user should leave page to routes after submitting form' do
+    visit root_path
+    expect(page).to have_css('div.closest-station-option')
   end
 
   scenario 'user should see station options when submitting address' do
