@@ -34,3 +34,10 @@
     <div id="station4DirectionsPanel"></div>
     <div id="station4Elevation"></div>
 
+    <br>
+
+     <h2 class="stationName"><%= @closest_stations[4].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[4].name %>  || <%= (@closest_stations[4].distance_to).round(4) %> miles</h2>
+    <div class="station" id="station5Map"></div>
+    <div id="station5DirectionsPanel"></div>
+    <div id="station5Elevation"></div>
+
