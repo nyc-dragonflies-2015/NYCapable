@@ -1,6 +1,7 @@
 <div class="routes-page">
 <div class="display-container">
-  <span class="closest-stations-summary"><h2>Stations closest to me:<h2>
+  <span class="closest-stations-summary">
+    <div class="header-title"><h2>Stations closest to me:<h2></div>
      <p> <% @closest_stations.each do |station| %>
           <%station.name %>
           <% end  %></p>
@@ -18,16 +19,15 @@
                       </a>
                     </h4>
                 </div>
-
                 <div id="collapseOne" class="panel-collapse collapse in">
-                    <div class="panel-body-1">
+                    <div class="panel-body">
 
                       <div class="station" id="station1Map" ></div>
                       <div id="station1DirectionsPanel"></div>
                       <div id="station1Elevation"></div>
 
                     </div>
-                </div>
+              </div>
             </div>
 
             <div class="panel panel-default">
