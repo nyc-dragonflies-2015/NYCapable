@@ -4,7 +4,6 @@ feature 'visit root page' do
   scenario 'user visits root page' do
     visit root_path
     expect(page).to have_selector("input[placeholder='Enter Address']")
-    # need to wait to know what to call on google place autocomplete
   end
 
   scenario 'user expects input field on root page' do
@@ -17,14 +16,15 @@ feature 'visit root page' do
     visit root_path
     expect(page).to have_no_css('div.closest-station-option')
   end
+end
 
-  scenario 'user should leave page to routes after submitting form' do
-    visit root_path
-
-    expect(page).to have_css('div.closest-station-option')
+feature 'visit routes page' do
+  xscenario 'user visits root page' do
+    visit routes_path
+    expect(page).to have_content('Station closest to me:')
   end
 
-  scenario 'user should see station options when submitting address' do
+  xscenario 'user should see station options when submitting address' do
     visit root_path
     #address input field needs the id 'submit-address-form'
     fill_in "submit-address-form",:with => '48 Wall Street, New York, NY'
@@ -47,11 +47,7 @@ feature 'visit root page' do
   xscenario 'stations should include distance' do
 
   end
-
 end
-
-
-
 
 feature 'visit other_resource page' do
   scenario 'visits other_resource page' do
@@ -61,7 +57,7 @@ feature 'visit other_resource page' do
 
   scenario 'visits other_resource page to view map' do
     visit other_resources_path
-    expect(page).to have_css("img[src*='subwayrecord']")
+    expect(page).to have_css("img")
     end
 
   # scenario 'visits other_resource page to view map' do
