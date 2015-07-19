@@ -1,9 +1,8 @@
 class RoutesController < ApplicationController
 
   def index
-    @user_lat = 40.760750
-    @user_long = -73.990438
-    @user_location = Geokit::LatLng.new(@user_lat,@user_long)
+    @user_input = params["variable"].split(",").map! {|num| num.to_f }
+    @user_location = Geokit::LatLng.new(@user_input[0],@user_input[1])
     @bens_location = [@user_lat, @user_long]
 
     @stations = Station.all
