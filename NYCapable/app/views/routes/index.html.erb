@@ -1,11 +1,36 @@
 <!--  <div style='width: 800px;'>
     <div id="directions" style='width: 800px; height: 400px;'></div>
 </div> -->
-    <button type="button" onclick="calcRoute();drawPath(); bensDrawPath()" >Click Me!</button>
-    <div id="map-canvas"></div>
-    <div id="directionsPanel"></div>
-    <div id="elevation_chart"></div>
+    <button type="button", class="testing", data-stations="<%= @closest_stations.to_json %>", data-user="<%= @bens_location.to_json %>", onclick="calcRoute()">Click Me!</button><br>
+    Station closest to me:
+   <p> <% @closest_stations.each do |station| %>
+        <%= station.name %> ,
+        <% end  %></p>
+
+
+    <h2 class="stationName"><%= @closest_stations[0].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[0].name %>  || <%= (@closest_stations[0].distance_to).round(2) %> miles</h2>
+    <div class="station" id="station1Map"></div>
+    <div id="station1DirectionsPanel"></div>
+    <div id="station1Elevation"></div>
+
     <br>
-    <div id="map-canvas2"></div>
+
+    <h2 class="stationName"><%= @closest_stations[1].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[1].name %>  || <%= (@closest_stations[1].distance_to).round(2) %> miles</h2>
+    <div class="station" id="map-canvas2"></div>
     <div id="bensDirectionsPanel"></div>
     <div id="bens_elevation_chart"></div>
+
+    <br>
+
+     <h2 class="stationName"><%= @closest_stations[2].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[2].name %>  || <%= (@closest_stations[2].distance_to).round(2) %> miles</h2>
+    <div class="station" id="station3Map"></div>
+    <div id="station3DirectionsPanel"></div>
+    <div id="station3Elevation"></div>
+
+    <br>
+
+     <h2 class="stationName"><%= @closest_stations[3].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[3].name %>  || <%= (@closest_stations[3].distance_to).round(3) %> miles</h2>
+    <div class="station" id="station4Map"></div>
+    <div id="station4DirectionsPanel"></div>
+    <div id="station4Elevation"></div>
+

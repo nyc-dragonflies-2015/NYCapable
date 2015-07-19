@@ -4,6 +4,7 @@ class RoutesController < ApplicationController
     @user_lat = 40.760750
     @user_long = -73.990438
     @user_location = Geokit::LatLng.new(@user_lat,@user_long)
+    @bens_location = [@user_lat, @user_long]
 
     @stations = Station.all
     @stations.each do |station|
