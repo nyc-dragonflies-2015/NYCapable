@@ -22,24 +22,25 @@ function initialize() {
   // populate the address fields in the form.
   google.maps.event.addListener(autocomplete, 'place_changed', function() {
     var userInputLocation = [autocomplete.gm_accessors_.place.Pc.place.geometry.location["A"],autocomplete.gm_accessors_.place.Pc.place.geometry.location["F"]]
-    debugger
-    return userInputLocation
+    window.location = "http://localhost:3000/routes?variable=" + userInputLocation;
+    // return userInputLocation
   });
+  // render :js => "window.location = '/routes'"
 }
 
-// function geolocate() {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(function(position) {
-//       var geolocation = new google.maps.LatLng(
-//           position.coords.latitude, position.coords.longitude);
-//       var circle = new google.maps.Circle({
-//         center: geolocation,
-//         radius: position.coords.accuracy
-//       });
-//       autocomplete.setBounds(circle.getBounds());
-//     });
-//   }
-// }
+function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = new google.maps.LatLng(
+          position.coords.latitude, position.coords.longitude);
+      var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: position.coords.accuracy
+      });
+      autocomplete.setBounds(circle.getBounds());
+    });
+  }
+}
 // [END region_geolocation]
 
     </script>
@@ -58,7 +59,7 @@ function initialize() {
 
   <body onload="initialize()">
     <div id="locationField">
-      <input id="autocomplete" placeholder="Enter your address" type="text"></input>
+      <input id="autocomplete" placeholder="Enter your address" onFocus="geolocate();" type="text"></input>
     </div>
 
 
