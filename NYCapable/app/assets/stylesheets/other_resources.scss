@@ -1,13 +1,11 @@
-.page-title {
- position: relative;
-}
-
-.subway-map {
-  position: relative;
-  left: -200px;
-}
-
-.resource-links {
-  position: relative;
-  left:-200px;
+.other-resources {
+  position: fixed;
+  background-color: white;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 5%;
+  max-width: 80%;
+  height: 100%;
+  overflow-y:scroll;
+  overflow-x:scroll;
 }
