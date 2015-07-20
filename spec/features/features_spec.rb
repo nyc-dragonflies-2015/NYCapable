@@ -16,18 +16,37 @@ feature 'visit root page' do
 
   xscenario 'user should see station options when submitting address' do
     visit root_path
+<<<<<<< HEAD
     fill_in "",:with => '48 Wall Street, New York, NY 10015'
+=======
+    fill_in "",:with => '48 Wall Street, New York, NY'
+>>>>>>> Remove factory girl from rails_helper
     expect(page).to redirect_to routes_path
   end
 
 end
 
+<<<<<<< HEAD
 # :index , :variable=>'40.7063634,-74.00909630000001'
 feature 'visit routes page' do
   xscenario 'user visits routes page' do
     # visit('http://localhost:3000/routes?variable=40.7585757,-73.98570899999999')
     expect(page).to have_content('Closest stations:')
      save_and_open_page 
+=======
+
+feature 'visit routes page' do
+  scenario 'user should not see station options on initial visit' do
+    visit root_path
+    expect(page).to have_no_css('div.closest-station-option')
+  end
+end
+
+feature 'visit routes page' do
+  xscenario 'user visits root page' do
+    visit routes_path
+    expect(page).to have_content('Station closest to me:')
+>>>>>>> Remove factory girl from rails_helper
   end
 
   xscenario 'user should not see station options on initial visit' do
@@ -38,8 +57,12 @@ feature 'visit routes page' do
   xscenario 'user should see station options when submitting address' do
     visit root_path
     #address input field needs the id 'submit-address-form'
+<<<<<<< HEAD
     save_and_open_page 
     fill_in "",:with => '48 Wall Street, New York, NY 10015'
+=======
+    fill_in "",:with => '48 Wall Street, New York, NY'
+>>>>>>> Remove factory girl from rails_helper
     click_button("")
   end
 
@@ -56,12 +79,23 @@ feature 'visit routes page' do
   end
 
   xscenario 'stations should include distance' do
+<<<<<<< HEAD
     # visit path
     expect(page).to have_css('h3.stationName')
+=======
+
+>>>>>>> Remove factory girl from rails_helper
   end
 
 end
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> Remove factory girl from rails_helper
 feature 'visit other_resource page' do
   scenario 'visits other_resource page' do
     visit other_resources_path
@@ -72,6 +106,10 @@ feature 'visit other_resource page' do
     visit other_resources_path
     expect(page).to have_css("img")
   end
+<<<<<<< HEAD
+=======
+
+>>>>>>> Remove factory girl from rails_helper
 end
 
 feature 'visit other_resource page' do
@@ -126,7 +164,11 @@ feature 'visit other_resource page' do
 
   xscenario 'user sees revealed MTA Resources links' do
     visit other_resources_path
+<<<<<<< HEAD
     find("h2.mta-resources").click
+=======
+    find(".mta-resources").click
+>>>>>>> Remove factory girl from rails_helper
     expect(page).to have_content("mta.info | Accessibility")
   end
 end
