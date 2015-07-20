@@ -1,7 +1,7 @@
-html { height: 100%; }
-body { height: 100%; margin: 0; padding: 0; }
+/*html { height: 100%; }
+body { height: 100%; margin: 0; padding: 0; }*/
 
-
+/*
 .station {
   height: 50%;
   width: 30%;
@@ -10,8 +10,32 @@ body { height: 100%; margin: 0; padding: 0; }
 .station {
   height: 50%;
   width: 30%;
+}*/
+
+#station1Map {
+  height: 500px !important;
+  width: 100%;
 }
 
+#station2Map {
+  height: 500px !important;
+  width: 100%;
+}
+
+#station3Map {
+  height: 500px !important;
+  width: 100%;
+}
+
+#station4Map {
+  height: 500px !important;
+  width: 100%;
+}
+
+#station5Map {
+  height: 500px !important;
+  width: 100%;
+}
 
 .controls {
   margin-top: 16px;
