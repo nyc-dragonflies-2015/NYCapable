@@ -1,7 +1,7 @@
 <div class="routes-page">
 <div class="display-container">
   <span class="closest-stations-summary">
-    <div class="header-title"><h2>Stations closest to me:<h2></div>
+    <div class="header-title"><h2>Closest stations:<h2></div>
     <div class="testing" data-stations="<%= @closest_stations.to_json %>" data-user="<%= @user_location %>"></div>
         <div class="panel-group" id="accordion">
 
@@ -9,7 +9,7 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                          <h3 class="stationName1"><%= @closest_stations[0].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[0].name %>|| <%= (@closest_stations[0].distance_to).round(2) %> miles</h3>
+                          <h3 class="stationName1"><%= @closest_stations[0]["station"].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[0]["station"].name %>|| <%= (@closest_stations[0]["distance"]).round(2) %> miles</h3>
                       </a>
                     </h4>
                 </div>
@@ -29,7 +29,7 @@
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
 
-                          <h3 class="stationName"><%= @closest_stations[1].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[1].name %>  || <%= (@closest_stations[1].distance_to).round(2) %> miles</h3>
+                          <h3 class="stationName"><%= @closest_stations[1]["station"].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[1]["station"].name %>  || <%= (@closest_stations[1]["distance"]).round(2) %> miles</h3>
 
                       </a>
                     </h4>
@@ -50,7 +50,7 @@
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
 
-                          <h3 class="stationName"><%= @closest_stations[2].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[2].name %>  || <%= (@closest_stations[2].distance_to).round(2) %> miles</h3>
+                          <h3 class="stationName"><%= @closest_stations[2]["station"].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[2]["station"].name %>  || <%= (@closest_stations[2]["distance"]).round(2) %> miles</h3>
 
                       </a>
                     </h4>
@@ -71,7 +71,7 @@
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
 
-                           <h3 class="stationName"><%= @closest_stations[3].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[3].name %>  || <%= (@closest_stations[3].distance_to).round(3) %> miles</h3>
+                           <h3 class="stationName"><%= @closest_stations[3]["station"].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[3]["station"].name %>  || <%= (@closest_stations[3]["distance"]).round(2) %> miles</h3>
                        </a>
                     </h4>
                 </div>
@@ -89,7 +89,7 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-                          <h3 class="stationName"><%= @closest_stations[4].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[4].name %>  || <%= (@closest_stations[4].distance_to).round(3) %> miles</h3>
+                          <h3 class="stationName"><%= @closest_stations[4]["station"].routes.pluck(:route_short_name).join(" , ")%> || <%= @closest_stations[4]["station"].name %>  || <%= (@closest_stations[4]["distance"]).round(2) %> miles</h3>
                       </a>
                     </h4>
                 </div>
