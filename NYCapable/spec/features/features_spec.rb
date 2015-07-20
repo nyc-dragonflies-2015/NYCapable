@@ -5,6 +5,7 @@ feature 'visit root page' do
   scenario 'user visits root page' do
     visit root_path
     expect(page).to have_selector("input[placeholder='Enter Address']")
+  end
 
   scenario 'user visits root page' do
     visit root_path
@@ -80,10 +81,6 @@ feature 'visit routes page' do
 end
 
 
-feature 'visit other_resource page' do
-
-  end
-end
 
 feature 'visit other_resource page' do
 
@@ -94,13 +91,13 @@ feature 'visit other_resource page' do
 
   scenario 'visits other_resource page to view map' do
     visit other_resources_path
-
     expect(page).to have_css("img")
   end
 
   scenario 'user sees MTA Resources' do
     expect(page).to have_css("img[src*='subwayrecord']")
   end
+
 end
 
 feature 'visit other_resource page' do
@@ -149,7 +146,6 @@ scenario 'user sees MTA Resources' do
     click_link("NYC Resources")
     expect(page).to have_content("mta.info | Accessibility")
   end
-end
 
   scenario 'user sees Government Resources links' do
     visit other_resources_path
@@ -158,15 +154,11 @@ end
 
 end
 
-
 feature 'visit About page' do
   scenario 'visits About page' do
     visit about_index_path
     expect(page).to have_text("Our Mission")
   end
-
-end
-
 end
 
 
