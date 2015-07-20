@@ -21,6 +21,7 @@ function initialize() {
   // When the user selects an address from the dropdown,
   // populate the address fields in the form.
   google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    // Try using these accessor methods like: autocomplete.getPlace().geometry.location.lng()
     var userInputLocation = [autocomplete.gm_accessors_.place.Pc.place.geometry.location["A"],autocomplete.gm_accessors_.place.Pc.place.geometry.location["F"]]
     window.location = "http://localhost:3000/routes?variable=" + userInputLocation;
     // return userInputLocation
@@ -65,15 +66,3 @@ function geolocate() {
 
   </body>
 </html>
-
-<!-- // $('.autocomplete').on('click', function{
-//     alert("hi");
-//     $.ajax({
-//     type: 'GET',
-//     url: '/routes',
-//     dataType: 'script',
-//     data: { subject: subject.val(), body: body.val() }
-//     };
-// })
-//
- -->

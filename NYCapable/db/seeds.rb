@@ -1,6 +1,13 @@
 require 'CSV'
 
 #Routes seed
+# I think that the thing that's on my mind here is that you could express what
+# you do when the data isn't found better.  You could even put some scary
+# placholder text like "ROUTE LONG NAME NOT FOUND."
+
+# I also like the idea of moving from using static file to doing this live
+# based on a Net::HTTP query.  Not a big deal either way.
+
 CSV.foreach('db/google_transit/routes.txt',
   :headers => true,
   :header_converters => :symbol) do |args|
