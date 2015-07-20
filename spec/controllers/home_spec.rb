@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe HomeController do
-
   describe "GET index" do
     it 'should get the index' do
       get :index
