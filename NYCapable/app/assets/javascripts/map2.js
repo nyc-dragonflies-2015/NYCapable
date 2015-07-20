@@ -129,13 +129,14 @@ function bensDrawPath(person,place){
 }
 
 function calcRoute(){
+  debugger
   var userLocation = new google.maps.LatLng($('.testing').data("user")[0],$('.testing').data("user")[1]);
   var station1 = new google.maps.LatLng($('.testing').data("stations")[0].latitude,$('.testing').data("stations")[0].longitude);
   var station2 = new google.maps.LatLng($('.testing').data("stations")[1].latitude,$('.testing').data("stations")[1].longitude);
   var station3 = new google.maps.LatLng($('.testing').data("stations")[2].latitude,$('.testing').data("stations")[2].longitude);
   var station4 = new google.maps.LatLng($('.testing').data("stations")[3].latitude,$('.testing').data("stations")[3].longitude);
   var station5 = new google.maps.LatLng($('.testing').data("stations")[4].latitude,$('.testing').data("stations")[4].longitude);
-
+  debugger
   var request = {
     origin: userLocation,
     destination: station1,
@@ -182,7 +183,7 @@ function bensCalcRoute(person,place){
     center: person
   };
 
-  bensMap = new google.maps.Map(document.getElementById('map-canvas2'), bensMapOptions);
+  bensMap = new google.maps.Map(document.getElementById('station2Map'), bensMapOptions);
 
   bensDirectionsService.route(bensRequest, function(result, status){
     bensDirectionsDisplay = new google.maps.DirectionsRenderer();
