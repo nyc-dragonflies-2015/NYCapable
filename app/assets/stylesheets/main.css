@@ -80,8 +80,8 @@ body { height: 100%; margin: 0; padding: 0; }*/
 }
 
 #autocomplete {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 99%;
-  }
+  position: absolute;
+  top: 400px;
+  left:250px;
+  width: 50%;
+}
