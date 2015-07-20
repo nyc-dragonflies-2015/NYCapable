@@ -1,9 +1,15 @@
 require 'rails_helper'
 
 feature 'visit root page' do
+
   scenario 'user visits root page' do
     visit root_path
     expect(page).to have_selector("input[placeholder='Enter Address']")
+
+  scenario 'user visits root page' do
+    visit root_path
+    expect(page).to have_text("Enter Your Location")
+    expect(page).to have_text("Find A Station")
   end
 
   scenario 'user expects input field on root page' do
@@ -14,21 +20,19 @@ feature 'visit root page' do
     expect(page).to have_text("Find A Station")
   end
   scenario 'user expects input field on root page' do
-    visit root_path
     expect(rendered).to have_selector("input", :type => "text", :value => "")
+    expect(page).to have_selector("input[placeholder='Enter Address']")
+  end
+
+  scenario 'user expects input field on root page' do
+    visit root_path
+    expect(page).to have_selector("input")
+    # need to account for google form format
   end
 
   scenario 'user should not see station options on initial visit' do
     visit root_path
     expect(page).to have_no_css('div.closest-station-option')
-  end
-end
-
-
-feature 'visit routes page' do
-  xscenario 'user visits root page' do
-    visit routes_path
-    expect(page).to have_content('Station closest to me:')
   end
 
 
@@ -37,8 +41,23 @@ feature 'visit routes page' do
     click_button("submit-address-button")
     expect(page).to have_css('div.closest-station-option')
   end
+end
+
+
+feature 'visit routes page' do
+
+  xscenario 'user visits root page' do
+    visit routes_path
+    expect(page).to have_content('Station closest to me:')
+  end
 
   scenario 'user should see station options when submitting address' do
+    visit root_path
+    click_button("submit-address-button")
+    expect(page).to have_css('div.closest-station-option')
+  end
+
+  xscenario 'user should see station options when submitting address' do
     visit root_path
     #address input field needs the id 'submit-address-form'
     fill_in "submit-address-form",:with => '48 Wall Street, New York, NY'
@@ -46,12 +65,7 @@ feature 'visit routes page' do
     expect(page).to have_css('div.closest-station-option')
   end
 
-
   xscenario 'maps should be hidden until station is clicked' do
-
-  end
-
-  xscenario 'maps should be displayed station is clicked' do
 
   end
 
@@ -67,6 +81,12 @@ end
 
 
 feature 'visit other_resource page' do
+
+  end
+end
+
+feature 'visit other_resource page' do
+
   scenario 'visits other_resource page' do
     visit other_resources_path
     expect(page).to have_text("Other Resources")
@@ -74,10 +94,17 @@ feature 'visit other_resource page' do
 
   scenario 'visits other_resource page to view map' do
     visit other_resources_path
+
     expect(page).to have_css("img")
   end
 
   scenario 'user sees MTA Resources' do
+    expect(page).to have_css("img[src*='subwayrecord']")
+  end
+end
+
+feature 'visit other_resource page' do
+scenario 'user sees MTA Resources' do
     visit other_resources_path
     expect(page).to have_content("MTA Resources")
   end
@@ -93,7 +120,8 @@ feature 'visit other_resource page' do
     expect(page).to have_content("NYC Resources")
   end
 
-  xscenario 'user sees revealed NYC Resources links' do
+
+  scenario 'user sees revealed NYC Resources links' do
     visit other_resources_path
     click_link("NYC Resources")
     expect(page).to have_content("mta.info | Accessibility")
@@ -104,7 +132,8 @@ feature 'visit other_resource page' do
     expect(page).to have_content("Government Resources")
   end
 
-  xscenario 'user sees revealed Government Resources links' do
+
+  scenario 'user sees revealed Government Resources links' do
     visit other_resources_path
     click_link("NYC Resources")
     expect(page).to have_content("mta.info | Accessibility")
@@ -122,7 +151,12 @@ feature 'visit other_resource page' do
   end
 end
 
+  scenario 'user sees Government Resources links' do
+    visit other_resources_path
+    expect(page).to have_content("mta.info | Accessibility")
+  end
 
+end
 
 
 feature 'visit About page' do
@@ -133,6 +167,7 @@ feature 'visit About page' do
 
 end
 
+end
 
 
 
