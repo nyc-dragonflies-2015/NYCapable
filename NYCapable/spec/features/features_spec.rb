@@ -4,44 +4,20 @@ feature 'visit root page' do
 
   scenario 'user visits root page' do
     visit root_path
-    expect(page).to have_selector("input[placeholder='Enter Address']")
-  end
-
-  scenario 'user visits root page' do
-    visit root_path
-    expect(page).to have_text("Enter Your Location")
-    expect(page).to have_text("Find A Station")
+    expect(page).to have_selector("input#autocomplete")
   end
 
   scenario 'user expects input field on root page' do
     visit root_path
     expect(page).to have_selector("input")
-    # need to account for google form format
-    expect(page).to have_text("Enter Your Location")
-    expect(page).to have_text("Find A Station")
-  end
-  scenario 'user expects input field on root page' do
-    expect(rendered).to have_selector("input", :type => "text", :value => "")
-    expect(page).to have_selector("input[placeholder='Enter Address']")
   end
 
-  scenario 'user expects input field on root page' do
+  xscenario 'user should see station options when submitting address' do
     visit root_path
-    expect(page).to have_selector("input")
-    # need to account for google form format
+    fill_in "",:with => '48 Wall Street, New York, NY'
+    expect(page).to redirect_to routes_path
   end
 
-  scenario 'user should not see station options on initial visit' do
-    visit root_path
-    expect(page).to have_no_css('div.closest-station-option')
-  end
-
-
-  scenario 'user should see station options when submitting address' do
-    visit root_path
-    click_button("submit-address-button")
-    expect(page).to have_css('div.closest-station-option')
-  end
 end
 
 
@@ -52,17 +28,16 @@ feature 'visit routes page' do
     expect(page).to have_content('Station closest to me:')
   end
 
-  scenario 'user should see station options when submitting address' do
+  xscenario 'user should not see station options on initial visit' do
     visit root_path
-    click_button("submit-address-button")
-    expect(page).to have_css('div.closest-station-option')
+    expect(page).to have_no_css('div.closest-station-option')
   end
 
   xscenario 'user should see station options when submitting address' do
     visit root_path
     #address input field needs the id 'submit-address-form'
-    fill_in "submit-address-form",:with => '48 Wall Street, New York, NY'
-    click_button("submit-address-button")
+    fill_in "",:with => '48 Wall Street, New York, NY'
+    click_button("")
     expect(page).to have_css('div.closest-station-option')
   end
 
@@ -94,13 +69,10 @@ feature 'visit other_resource page' do
     expect(page).to have_css("img")
   end
 
-  scenario 'user sees MTA Resources' do
-    expect(page).to have_css("img[src*='subwayrecord']")
-  end
-
 end
 
 feature 'visit other_resource page' do
+
 scenario 'user sees MTA Resources' do
     visit other_resources_path
     expect(page).to have_content("MTA Resources")
@@ -118,10 +90,10 @@ scenario 'user sees MTA Resources' do
   end
 
 
-  scenario 'user sees revealed NYC Resources links' do
+  xscenario 'user sees revealed NYC Resources links' do
     visit other_resources_path
-    click_link("NYC Resources")
-    expect(page).to have_content("mta.info | Accessibility")
+    find(".nyc-resources").click
+    expect(page).to have_content("NYC Mayor's Office For People with Disabilities")
   end
 
   scenario 'user sees Government Resources' do
@@ -130,10 +102,10 @@ scenario 'user sees MTA Resources' do
   end
 
 
-  scenario 'user sees revealed Government Resources links' do
+  xscenario 'user sees revealed Government Resources links' do
     visit other_resources_path
-    click_link("NYC Resources")
-    expect(page).to have_content("mta.info | Accessibility")
+    find(".government-resources").click
+    expect(page).to have_content("ADA.gov")
   end
 
   scenario 'user sees Route Information (pdf)' do
@@ -141,16 +113,12 @@ scenario 'user sees MTA Resources' do
     expect(page).to have_content("Route Information (pdf)")
   end
 
-  xscenario 'user sees revealed Government Resources links' do
+  xscenario 'user sees revealed MTA Resources links' do
     visit other_resources_path
-    click_link("NYC Resources")
+    find(".mta-resources").click
     expect(page).to have_content("mta.info | Accessibility")
   end
 
-  scenario 'user sees Government Resources links' do
-    visit other_resources_path
-    expect(page).to have_content("mta.info | Accessibility")
-  end
 
 end
 
