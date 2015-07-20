@@ -3,11 +3,11 @@ google.load('visualization', '1', {packages: ['columnchart']});
 
 function calcRoute(){
   var userLocation = new google.maps.LatLng($('.testing').data("user")[0],$('.testing').data("user")[1]);
-  var station1 = new google.maps.LatLng($('.testing').data("stations")[0].latitude,$('.testing').data("stations")[0].longitude);
-  var station2 = new google.maps.LatLng($('.testing').data("stations")[1].latitude,$('.testing').data("stations")[1].longitude);
-  var station3 = new google.maps.LatLng($('.testing').data("stations")[2].latitude,$('.testing').data("stations")[2].longitude);
-  var station4 = new google.maps.LatLng($('.testing').data("stations")[3].latitude,$('.testing').data("stations")[3].longitude);
-  var station5 = new google.maps.LatLng($('.testing').data("stations")[4].latitude,$('.testing').data("stations")[4].longitude)
+  var station1 = new google.maps.LatLng($('.testing').data("stations")[0].station.latitude,$('.testing').data("stations")[0].station.longitude);
+  var station2 = new google.maps.LatLng($('.testing').data("stations")[1].station.latitude,$('.testing').data("stations")[1].station.longitude);
+  var station3 = new google.maps.LatLng($('.testing').data("stations")[2].station.latitude,$('.testing').data("stations")[2].station.longitude);
+  var station4 = new google.maps.LatLng($('.testing').data("stations")[3].station.latitude,$('.testing').data("stations")[3].station.longitude);
+  var station5 = new google.maps.LatLng($('.testing').data("stations")[4].station.latitude,$('.testing').data("stations")[4].station.longitude)
 
 mapIt(userLocation, station1, 'station1Map','station1DirectionsPanel', 'station1Elevation')
 mapIt(userLocation, station2, 'station2Map','bensDirectionsPanel', 'bens_elevation_chart')
