@@ -9,7 +9,7 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                          <h3 class="stationName1"><%= @closest_stations[0]["station"].routes.pluck(:route_short_name).partition{|x| x.is_a? String}.map(&:sort).flatten.join(" , ")%> || <%= @closest_stations[0]["station"].name %>|| <%= (@closest_stations[0]["distance"]).round(2) %> miles</h3>
+                          <h3 class="stationName1"><%= Station.print_icons(@closest_stations[0]["station"])%> || <%= @closest_stations[0]["station"].name %>|| <%= (@closest_stations[0]["distance"]).round(2) %> miles</h3>
                       </a>
                     </h4>
                 </div>
