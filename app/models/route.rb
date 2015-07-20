@@ -4,6 +4,18 @@ class Route < ActiveRecord::Base
 
   require 'open-uri'
 
+  def self.getDistances(userlocation)
+    @stations = Station.all
+    @mapped_stations = []
+    @stations.map do |station|
+      @station_location = Geokit::LatLng.new(station.latitude,station.longitude)
+      @distance_to = userlocation.distance_to(@station_location)
+      @mapped_stations << Hash["station",station, "distance", @distance_to]
+    end
+    @final = @mapped_stations.sort_by { |x| x["distance"] }
+    return @final.slice(0,5)
+  end
+
   def self.txt_read
     @doc = Nokogiri::XML(open('http://web.mta.info/status/serviceStatus.txt'))
   end
