@@ -60,8 +60,9 @@ feature 'visit routes page' do
 
   end
 
-  xscenario 'stations should include distance' do
-
+  scenario 'stations should include distance' do
+    # visit path
+    expect(page).to have_css('h3.stationName')
   end
 
 end
