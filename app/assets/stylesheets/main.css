@@ -24,16 +24,20 @@
 }
 
 #autocomplete {
-  position: absolute;
-  top: 400px;
-  left:250px;
-  width: 50%;
+  position: fixed;
+  top: 50%;
+  left: 40%;
+  margin-top: -50px;
+  margin-left: -70px;
+  width: 30%;
 }
 
 #geolocate {
-  position: absolute;
-  top: 400px;
-  left:750px;
+  position: fixed;
+  top: 50%;
+  left: 71%;
+  margin-top: -49px;
+  margin-left: -70px;
 }
 
 #geolocateForDirections {

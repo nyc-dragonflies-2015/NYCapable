@@ -11,8 +11,15 @@
   <body onload="search();geolocate();directions()">
     <div id="locationField">
       <input id="autocomplete" placeholder="Enter your address" type="text"></input>
-      <button id= "geolocate" type="button">Or Geolocate Me!</button>
+
+      <button type="button" class="btn btn-default btn-sm" id="geolocate">
+        <span class="glyphicon glyphicon-record" aria-hidden="true">MyLocation</span>
+      </button>
+
       <button id= "find" type="button">Or I want Directions!</button>
+
+
+
       <input id="origin" style="display: none" placeholder="Origin" type="text"></input>
       <button id= "geolocateForDirections" style="display: none" type="button">Or Geolocate Me!</button>
       <input id="destination" style="display: none"placeholder="Destination" type="text"></input>
