@@ -3,6 +3,7 @@ class Station < ActiveRecord::Base
     has_many :routes, through: :route_stations
 
   def self.print_icons(station)
+    return "" if station.nil?
     @routes = station.routes.pluck(:route_short_name).partition{|x| x.is_a? String}.map(&:sort).flatten
     html = []
     @total_routes = ["1","2","3","4","5","6","7","A","C","E","B","D","F","M","G","J","Z","L","S","N","Q","R"]
