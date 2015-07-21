@@ -1,4 +1,4 @@
-require 'CSV'
+require 'csv'
 
 #Routes seed
 CSV.foreach('db/google_transit/routes.txt',
