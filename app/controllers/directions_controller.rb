@@ -7,12 +7,13 @@ class DirectionsController < ApplicationController
     # @destination_location = Geokit::LatLng.new(@destination_location[0],@destination_location[1])
 
 
-    @user_location_object = Geokit::LatLng.new(40.733221,@user_location[1])
+    @user_location_object = Geokit::LatLng.new(40.733221,-73.994714)
+    @destination_location_object = Geokit::LatLng.new(40.706308, -74.009253)
+    byebug
 
 
     @user_closest_stations = Route.getDistances(@user_location)
     @destination_closest_stations = Route.getDistances(@destination_location)
-    @closest_stations = getRoutes(@)
   end
 
 end
