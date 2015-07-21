@@ -8,7 +8,7 @@ function search() {
 
   google.maps.event.addListener(autocomplete, 'place_changed', function() {
     var userInputLocation = [autocomplete.getPlace().geometry.location.lat(),autocomplete.getPlace().geometry.location.lng()]
-    window.location = "http://localhost:3000/routes?variable=" + userInputLocation;
+    window.location = "https://blooming-citadel-7327.herokuapp.com/routes?variable=" + userInputLocation;
   });
 
 }

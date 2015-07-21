@@ -1,17 +1,3 @@
-/*html { height: 100%; }
-body { height: 100%; margin: 0; padding: 0; }*/
-
-/*
-.station {
-  height: 50%;
-  width: 30%;
-}
-
-.station {
-  height: 50%;
-  width: 30%;
-}*/
-
 #station1Map {
   height: 500px !important;
   width: 100%;
@@ -105,8 +91,9 @@ body { height: 100%; margin: 0; padding: 0; }*/
   -webkit-border-radius: 999px;
   -moz-border-radius: 999px;
   border-radius: 999px;
-  behavior: url(css/PIE.htc); // For IE. See http://css3pie.com/
+  behavior: url(css/PIE.htc);
 }
+
 span.mta-bullet { display: inline-block; }
 .mta-a, .mta-c, .mta-e, .mta-ace { background-color: #2850AD; }
 .mta-b, .mta-d, .mta-f, .mta-m, .mta-bdfm { background-color: #FF6319; }

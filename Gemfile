@@ -38,6 +38,7 @@ gem 'nokogiri'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rails_12factor', group: :production
 gem 'bootstrap-sass', '~> 3.3.5'
 
 group :development, :test do
