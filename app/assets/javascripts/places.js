@@ -13,3 +13,16 @@ function search() {
 
 }
 
+function geolocate(){
+  if (navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(function(position){
+      var location = [position.coords.latitude, position.coords.longitude]
+      console.log(location)
+      $( "#geolocate" ).click(function(){
+        window.location = "http://localhost:3000/routes?variable=" + location;
+      })
+    })
+  } else {
+    alert('Please allow geolocation')
+  }
+}

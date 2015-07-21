@@ -86,6 +86,12 @@ body { height: 100%; margin: 0; padding: 0; }*/
   width: 50%;
 }
 
+#geolocate {
+  position: absolute;
+  top: 400px;
+  left:750px;
+}
+
 .mta-bullet {
   font-family: Helvetica, sans-serif;
   width:  2em;
