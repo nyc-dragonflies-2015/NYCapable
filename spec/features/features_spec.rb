@@ -22,10 +22,12 @@ feature 'visit root page' do
 
 end
 
+# :index , :variable=>'40.7063634,-74.00909630000001'
 feature 'visit routes page' do
   xscenario 'user visits routes page' do
-    visit 'routes?variable=40.7063634,-74.00909630000001'
+    # visit('http://localhost:3000/routes?variable=40.7585757,-73.98570899999999')
     expect(page).to have_content('Closest stations:')
+     save_and_open_page 
   end
 
   xscenario 'user should not see station options on initial visit' do
@@ -36,6 +38,7 @@ feature 'visit routes page' do
   xscenario 'user should see station options when submitting address' do
     visit root_path
     #address input field needs the id 'submit-address-form'
+    save_and_open_page 
     fill_in "",:with => '48 Wall Street, New York, NY 10015'
     click_button("")
   end
