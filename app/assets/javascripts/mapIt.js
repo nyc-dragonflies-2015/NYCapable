@@ -66,5 +66,5 @@ function mapIt(person, place, mapDiv, panelDiv, elevationDiv){
       titleY: 'Elevation (m)'
     });
   }
-
+  return map;
 }

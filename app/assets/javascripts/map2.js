@@ -11,8 +11,11 @@ $(function() {
   $(".panel h3").each(function(i, elem){
     $(elem).on('click', function(e){
       var station = stations[i].station,
-       specificLatLong = new google.maps.LatLng(station.latitude, station.longitude);
-      mapIt(userLatLong, specificLatLong, ORDER_OF_MAP_DIVS[i], ORDER_OF_PANEL_DIVS[i], ORDER_OF_ELEVATION_DIVS[i]);
+       specificLatLong = new google.maps.LatLng(station.latitude, station.longitude),
+       map = mapIt(userLatLong, specificLatLong, ORDER_OF_MAP_DIVS[i], ORDER_OF_PANEL_DIVS[i], ORDER_OF_ELEVATION_DIVS[i]);
+       setTimeout(function() {
+        google.maps.event.trigger(map, 'resize');
+       },500);
     });
   });
 });
