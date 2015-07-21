@@ -16,24 +16,16 @@ feature 'visit root page' do
 
   xscenario 'user should see station options when submitting address' do
     visit root_path
-    fill_in "",:with => '48 Wall Street, New York, NY'
+    fill_in "",:with => '48 Wall Street, New York, NY 10015'
     expect(page).to redirect_to routes_path
   end
 
 end
 
-
-# feature 'visit routes page' do
-#   scenario 'user should not see station options on initial visit' do
-#     visit routes_path
-#     expect(page).to have_content('miles')
-#   end
-# end
-
 feature 'visit routes page' do
-  xscenario 'user visits root page' do
-    visit routes_path
-    expect(page).to have_content('Station closest to me:')
+  xscenario 'user visits routes page' do
+    visit 'routes?variable=40.7063634,-74.00909630000001'
+    expect(page).to have_content('Closest stations:')
   end
 
   xscenario 'user should not see station options on initial visit' do
@@ -44,7 +36,7 @@ feature 'visit routes page' do
   xscenario 'user should see station options when submitting address' do
     visit root_path
     #address input field needs the id 'submit-address-form'
-    fill_in "",:with => '48 Wall Street, New York, NY'
+    fill_in "",:with => '48 Wall Street, New York, NY 10015'
     click_button("")
   end
 
@@ -60,16 +52,12 @@ feature 'visit routes page' do
 
   end
 
-  scenario 'stations should include distance' do
+  xscenario 'stations should include distance' do
     # visit path
     expect(page).to have_css('h3.stationName')
   end
 
 end
-
-
-
-
 
 feature 'visit other_resource page' do
   scenario 'visits other_resource page' do
@@ -81,7 +69,6 @@ feature 'visit other_resource page' do
     visit other_resources_path
     expect(page).to have_css("img")
   end
-
 end
 
 feature 'visit other_resource page' do
@@ -136,7 +123,7 @@ feature 'visit other_resource page' do
 
   xscenario 'user sees revealed MTA Resources links' do
     visit other_resources_path
-    find(".mta-resources").click
+    find("h2.mta-resources").click
     expect(page).to have_content("mta.info | Accessibility")
   end
 end
