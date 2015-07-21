@@ -73,10 +73,13 @@ function directions(){
     console.log("something went wrong", error)
   });
 
-// edge case: someone clicks directions without filling in the start and origin first.
   $('#directions').click(function(){
-    console.log(destinationPath);
-    // window.location = "http://localhost:3000/directions?variable=" + destinationPath;
+    if(destinationPath.length < 2){
+      alert("please fill out an origin and destination")
+    } else{
+      console.log(destinationPath)
+      // window.location = "http://localhost:3000/directions?variable=" + destinationPath;
+    }
   });
 
 
