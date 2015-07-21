@@ -36,6 +36,12 @@
   left:750px;
 }
 
+#find {
+  position: absolute;
+  top: 450px;
+  left:750px;
+}
+
 #directions {
   position: absolute;
   top: 500px;
