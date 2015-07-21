@@ -36,16 +36,24 @@
   left:750px;
 }
 
+#directions {
+  position: absolute;
+  top: 500px;
+  left:750px;
+}
+
 #origin {
   position: absolute;
   top: 450px;
   left:250px;
+  width: 50%;
 }
 
 #destination {
   position: absolute;
   top: 500px;
   left:250px;
+  width: 50%;
 }
 
 .mta-bullet {
