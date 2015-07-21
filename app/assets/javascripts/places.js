@@ -29,6 +29,15 @@ function geolocate(){
 
 function directions(){
 
+  $('#find').click(function(){
+    $('#autocomplete').hide()
+    $('#geolocate').hide()
+    $('#origin').show()
+    $('#destination').show()
+    $('#directions').show()
+    $('#find').hide()
+  })
+
   var destinationPath = []
   var origin = new google.maps.places.Autocomplete(
      (document.getElementById('origin')));
