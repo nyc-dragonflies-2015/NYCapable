@@ -23,12 +23,12 @@ feature 'visit root page' do
 end
 
 
-feature 'visit routes page' do
-  scenario 'user should not see station options on initial visit' do
-    visit root_path
-    expect(page).to have_no_css('div.closest-station-option')
-  end
-end
+# feature 'visit routes page' do
+#   scenario 'user should not see station options on initial visit' do
+#     visit routes_path
+#     expect(page).to have_content('miles')
+#   end
+# end
 
 feature 'visit routes page' do
   xscenario 'user visits root page' do
