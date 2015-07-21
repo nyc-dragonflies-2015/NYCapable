@@ -1,0 +1,17 @@
+<div class="routes-page">
+<div class="display-container">
+  <span class="closest-stations-summary">
+    <div class="header-title"><h2>Available Routes:<h2></div>
+    <div class="testing" data-stations="<%= @closest_stations.to_json %>" data-user="<%= @user_location %>"></div>
+        <div class="panel-group" id="accordion"><%= Direction.getHTML(@closest_stations[0]) %></div>
+    </div>
+</div>
+<!--
+
+<div id='collapseFive' class='panel-collapse collapse in'>
+                    #     <div class='panel-body'>
+                    #               <div class='station' id='station5Map'></div>
+                    #               <div id='station5DirectionsPanel'></div>
+                    #               <div id='station5Elevation'></div>
+                    #     </div>
+                    # </div> -->
