@@ -1,6 +1,6 @@
 class Direction < ActiveRecord::Base
 
-  def self.getDirections(starting_location, ending_location)
+  def self.getDirections(starting_location, ending_location, user_location, destination_location)
     no_transfers = []
     starting_other = []
     destination_other= []
@@ -12,11 +12,13 @@ class Direction < ActiveRecord::Base
             starting_other << start_station
             destination_other << end_station
           else
-            no_transfers << Hash["start", start_station, "destination", end_station]
+            distance = (Geokit::LatLng.new(start_station["station"]["latitude"],start_station["station"]["longitude"]).distance_to(user_location)) + (Geokit::LatLng.new(end_station["station"]["latitude"],end_station["station"]["longitude"]).distance_to(destination_location))
+            no_transfers << Hash["start", start_station, "destination", end_station, "distance", distance]
+            byebug
           end
         end
     end
-    byebug
+    return [no_transfers,starting_other,destination_other]
   end
 
 end
