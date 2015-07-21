@@ -8,10 +8,10 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
   </head>
 
-  <body onload="search()">
+  <body onload="search();geolocate()">
     <div id="locationField">
       <input id="autocomplete" placeholder="Enter your address" type="text"></input>
-      <button id= "geolocate" type="button" onclick="geolocate()">Or Geolocate Me!</button>
+      <button id= "geolocate" type="button">Or Geolocate Me!</button>
     </div>
   </body>
 </html>
