@@ -29,16 +29,34 @@ function geolocate(){
 
 function directions(){
 
+  var destinationPath = []
+
   $('#find').click(function(){
     $('#autocomplete').hide()
     $('#geolocate').hide()
     $('#origin').show()
     $('#destination').show()
     $('#directions').show()
+    $('#geolocateForDirections').show()
     $('#find').hide()
+
   })
 
-  var destinationPath = []
+  $('#geolocateForDirections').click(function(){
+    if (navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(function(position){
+        var locationForDirections = [position.coords.latitude, position.coords.longitude]
+        destinationPath.push(locationForDirections)
+        $('#origin').hide()
+        $('#geolocateForDirections').hide()
+        alert("location found. please enter your destination")
+        console.log(destinationPath)
+      })
+    } else {
+      alert('please allow for geolocation')
+    }
+  })
+
   var origin = new google.maps.places.Autocomplete(
      (document.getElementById('origin')));
 
@@ -68,7 +86,7 @@ function directions(){
 
   promise1.then(function(data){
     destinationPath.push(data)
-    console.log(destinationPath)
+    // console.log(destinationPath)
   }, function(error){
     console.log("something went wrong", error)
   });
