@@ -10,7 +10,9 @@ function geolocate(){
     }
   })
   promise.then(function(data){
-    console.log(data)
+    console.log(data) // this is the latlong object
+    // here i reverse geocode to get a formatted address...which we prob dont have to do but i was playing around
+    // what we can do once we have this data is **THEN** send it to the controller and get all our maps
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({'location': data}, function(results, status){
       if (status == google.maps.GeocoderStatus.OK){
