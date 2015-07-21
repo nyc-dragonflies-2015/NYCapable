@@ -40,12 +40,15 @@ class Direction < ActiveRecord::Base
   def self.getHTML(routes)
     html = []
     routes.each do |path|
+      @station1 = path["start"]["station"].routes.pluck(:route_short_name)
+      @station2 = path["destination"]["station"].routes.pluck(:route_short_name)
+      @in_common = (@station1 & @station2)
       html << "<div class='panel-group' id='accordion'>
-        # <div class='panel panel-default'>
+         <div class='panel panel-default'>
         <div class='panel-heading'>
           <h4 class='panel-title'>
             <a data-toggle='collapse' data-parent='#accordion' href='#collapseFive'>
-              <h3 class='stationName'>#{Station.print_icons(path['start']['station'])} || #{path['start']['station']['name']}</h3>
+              <h3 class='stationName'>#{Station.print_joint_icons(@in_common)} || #{path['start']['station']['name']}</h3>
               </a>
             </h4>
         </div>
@@ -65,7 +68,7 @@ class Direction < ActiveRecord::Base
         <div class='panel-heading'>
           <h4 class='panel-title'>
             <a data-toggle='collapse' data-parent='#accordion' href='#collapseFive'>
-              <h3 class='stationName'> #{Station.print_icons(path['destination']['station'])} || #{path['destination']['station']['name']} </h3>
+              <h3 class='stationName'> #{Station.print_joint_icons(@in_common)} || #{path['destination']['station']['name']} </h3>
               </a>
             </h4>
         </div>
@@ -77,8 +80,7 @@ class Direction < ActiveRecord::Base
             <div id='station#{routes.index(path)}Elevation'></div>
           </div>
         </div>
-        </div>"
-
+        </div><br><br>"
     end
     return html.join.html_safe
   end
