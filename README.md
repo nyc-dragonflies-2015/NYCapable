@@ -8,13 +8,13 @@ You can find the current version on Heroku [here](https://limitless-temple-7688.
 system to everyone.
 
 ###The NYCapable Team
--[Julia Castro](https://github.com/julia-castro)
--[Ben Cohen](https://github.com/benjamincohen1989)
--[Taylor Hang](https://github.com/sixthand6th)
--[Denny Tek](https://github.com/tekd)
+- [Julia Castro](https://github.com/julia-castro)
+- [Ben Cohen](https://github.com/benjamincohen1989)
+- [Taylor Hang](https://github.com/sixthand6th)
+- [Denny Tek](https://github.com/tekd)
 
 ###Contributions
-**You can find an ongoing list of features for future implementation on the [NYCapable Trello Board](https://trello.com/b/F8JDyx1o/accessible-nyc). If you would like to contribute to the project, feel free to choose a feature and let us know when you're ready to make a pull request. You can also join the [NYCapable Slack Channel](https://accessiblenyc.slack.com/messages/general/) if you've like to give us some feedback or discuss your contribution.**
+You can find an ongoing list of features for future implementation on the [NYCapable Trello Board](https://trello.com/b/F8JDyx1o/accessible-nyc). If you would like to contribute to the project, feel free to choose a feature and let us know when you're ready to make a pull request. You can also join the [NYCapable Slack Channel](https://accessiblenyc.slack.com/messages/general/) if you've like to give us some feedback or discuss your contribution.
 
 ### Installation
 
@@ -36,7 +36,7 @@ You can create an issue to make us aware of any bugs or problems or you can work
 
 
 ###API Reference
--We used the [MTA Developer Resources](http://datamine.mta.info/) to get static and real-time information on routes and service status. We developed our own database to pinpoint the precise location of ADA-compliant entrances and elevators.
+- We used the [MTA Developer Resources](http://datamine.mta.info/) to get static and real-time information on routes and service status. We developed our own database to pinpoint the precise location of ADA-compliant entrances and elevators.
 
 - We used the [Google Maps Places API](https://developers.google.com/places/) and the [Google Maps Javascript API](https://developers.google.com/maps/documentation/javascript/) for geolocation, directions, and map creation.
 
