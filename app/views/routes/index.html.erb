@@ -13,7 +13,7 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">
 
-                          <h3 class="stationName1"><%= Station.print_icons(@closest_stations[0]["station"])%>  <%= @closest_stations[0]["station"].name %>  (<%= (@closest_stations[0]["distance"]).round(2) %> miles away)</h3>
+                          <h3 class="stationName1"><%= Station.print_icons(@closest_stations[0]["station"])%> <%= Route.delayed(@closest_stations[0]["station"]) %> <%= @closest_stations[0]["station"].name %>  (<%= (@closest_stations[0]["distance"]).round(2) %> miles away)</h3>
 
                     </h4>
                 </div>

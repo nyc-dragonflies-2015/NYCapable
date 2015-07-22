@@ -39,6 +39,23 @@ class Route < ActiveRecord::Base
     .gsub("                ", '')
   end
 
+  def self.delayed(stations)
+    html = ["<span class='glyphicon glyphicon-warning-sign' aria-hidden='true'></span>"]
+    yes = []
+    routes = stations.routes.pluck(:route_short_name).partition{|x| x.is_a? String}.map(&:sort).flatten
+    routes.each do |station|
+      if Route.find_by(route_short_name: station).service_status != "GOOD SERVICE"
+        yes << "Yes"
+      end
+    end
+    if yes.length != 0
+      return html.join.html_safe
+    else
+      return ""
+    end
+  end
+
+
 
   def self.update_status
     Route.txt_read
