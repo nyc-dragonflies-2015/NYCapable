@@ -3,9 +3,16 @@
   background-color: white;
   padding-left: 2%;
   padding-right: 2%;
+  margin-right: 19.2%;
   padding-bottom: 5%;
-  max-width: 60%;
+  max-width: 80%;
   height: 100%;
+  word-wrap: break-word;
   overflow-y:scroll;
-  overflow-x:hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
 }
