@@ -52,15 +52,19 @@ class Route < ActiveRecord::Base
   end
 
   def self.display_delays(stations)
-    html = [""]
+    html = ["<span style='padding-left:20px'>"]
     routes = stations.routes.pluck(:route_short_name).partition{|x| x.is_a? String}.map(&:sort).flatten
     routes.each do |station|
       status = Route.find_by(route_short_name: station).service_status
       if status != "GOOD SERVICE"
-          html<< " <span class='mta-bullet mta-#{station.downcase}'>#{station}</span>: #{status} "
+          html<< "<span class='mta-bullet mta-#{station.downcase}'>#{station}</span>: #{status} "
       end
     end
-    return html.join.html_safe
+    if html.length == 1
+      return ""
+    else
+      return html.join.html_safe
+    end
   end
 
 
