@@ -1,5 +1,5 @@
 #NYCapable
-NYCapable is a project designed to help commuters find the closest wheelchair-accessible MTA stations. We hope that it will help an underserved population of the city quickly navigate the MTA system. This app provides directions to the 5 closest accessible subway stations from any given location with the exact location of ADA-compliant entrances and elevators. Future features include directions to and from any location and full, real-time status updates.
+NYCapable is a project designed to help commuters find the closest wheelchair-accessible MTA stations. We hope that it will help an underserved population of the city quickly navigate the MTA system. This app provides directions to the 5 closest accessible subway stations from any given location to the exact location of ADA-compliant entrances and elevators. Future features include directions to and from any location and full, real-time status updates.
 
 You can find the current version on Heroku [here](https://nycapable.herokuapp.com/). We believe that this project is just the beginning, and we'd love for you to contribute to a project that opens up the transit
 system to everyone.
