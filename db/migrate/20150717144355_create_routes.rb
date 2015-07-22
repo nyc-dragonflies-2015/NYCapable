@@ -1,12 +1,12 @@
 class CreateRoutes < ActiveRecord::Migration
   def change
     create_table :routes do |t|
-      t.string :route_id
-      t.string :agency_id
-      t.string :route_short_name
-      t.string :route_long_name
-      t.string :route_desc
-      t.string :route_type
+      t.string :route_id, null: false
+      t.string :agency_id, null: false
+      t.string :route_short_name, default: ""
+      t.string :route_long_name, default: ""
+      t.string :route_desc, default: ""
+      t.string :route_type, default: ""
       t.string :route_url
       t.string :route_color
       t.string :route_text_color
