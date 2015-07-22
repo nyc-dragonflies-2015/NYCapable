@@ -11,28 +11,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <%= link_to "NYCapable", root_path, class: "navbar-brand" %>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Other Resources", other_resources_path %></li>
-            <li><%= link_to "About", about_index_path %></li>
-          </ul>
-        </div>
-      </div>
-  </nav>
-  <br>
   <div class="container-fluid">
+    <%= image_tag("NYCapableLogo.png", :class => "logoImg") %>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"></button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+        <li role="presentation"><%= link_to "Home", root_path %></li>
+        <li role="presentation"><li><%= link_to "Other Resources", other_resources_path %></li>
+        <li role="presentation"><%= link_to "About", about_index_path %></li>
+      </ul>
+    </div>
     <div class="row">
       <div class="col-xs-10  col-xs-offset-1 col-md-8 col-md-offset-2"><%= yield %></div>
     </div>
