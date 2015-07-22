@@ -1,0 +1,8 @@
+<div class="routes-page">
+<div class="display-container">
+  <span class="closest-stations-summary">
+    <div class="header-title"><h2>Available Routes Not Requiring Transfers:<h2></div>
+    <div class="testing" data-stations="<%= @closest_stations.to_json %>" data-user="<%= @starting_location %>" data-destination="<%= @destination_location %>" data-routes="<%= @station_locations %>"></div>
+        <div class="panel-group" id="accordion"><%= Direction.getHTML(@closest_stations[0]) %></div>
+    </div>
+</div>

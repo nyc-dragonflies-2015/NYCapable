@@ -11,4 +11,12 @@ class Station < ActiveRecord::Base
     return html.join.html_safe
   end
 
+  def self.print_joint_icons(routes)
+    html = []
+    routes.each do |x|
+      html << "<span class='mta-bullet mta-#{x.downcase}'> #{x} </span>  "
+    end
+    return html.join.html_safe
+  end
+
 end

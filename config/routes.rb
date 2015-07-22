@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  get '/directions', to: 'directions#index'
+
   resources :routes, only: [:index, :show]
 
   resources :about, only: [:index]

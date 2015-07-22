@@ -23,6 +23,57 @@
   width: 100%;
 }
 
+#route1Map {
+  height: 500px !important;
+  width: 100%;
+}
+
+#route2Map {
+  height: 500px !important;
+  width: 100%;
+}
+
+#route3Map {
+  height: 500px !important;
+  width: 100%;
+}
+
+#route4Map {
+  height: 500px !important;
+  width: 100%;
+}
+
+#route5Map {
+  height: 500px !important;
+  width: 100%;
+}
+
+#route6Map {
+  height: 500px !important;
+  width: 100%;
+}
+
+#route7Map {
+  height: 500px !important;
+  width: 100%;
+}
+
+#route8Map {
+  height: 500px !important;
+  width: 100%;
+}
+
+#route9Map {
+  height: 500px !important;
+  width: 100%;
+}
+
+#route10Map {
+  height: 500px !important;
+  width: 100%;
+}
+
+
 #autocomplete {
   position: fixed;
   top: 50%;
