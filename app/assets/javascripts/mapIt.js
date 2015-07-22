@@ -1,5 +1,13 @@
 function mapIt(person, place, mapDiv, panelDiv, elevationDiv){
 
+
+  var mapOptions = {
+      zoom: 8,
+      center: person
+      }
+
+  var map = new google.maps.Map(document.getElementById(mapDiv), mapOptions);
+
   var request = {
     origin: person,
     destination: place,
@@ -11,6 +19,8 @@ function mapIt(person, place, mapDiv, panelDiv, elevationDiv){
   var directionsDisplay = new google.maps.DirectionsRenderer();
 
   directionsService.route(request, function(result, status){
+
+
     if (status == google.maps.DirectionsStatus.OK){
 
       var mapOptions = {

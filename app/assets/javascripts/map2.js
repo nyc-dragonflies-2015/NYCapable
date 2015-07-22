@@ -15,6 +15,7 @@ $(function() {
        setTimeout(function() {
         google.maps.event.trigger(map, 'resize');
        },500);
+       document.getElementById(ORDER_OF_PANEL_DIVS[i]).innerHTML = ''
     });
   });
 });
