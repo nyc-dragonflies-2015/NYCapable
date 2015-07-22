@@ -1,11 +1,9 @@
 class DirectionsController < ApplicationController
 
   def index
-    # @user_location = params["variable"].split(",").map! {|num| num.to_f }
-    # @user_location_object = Geokit::LatLng.new(@user_location[0],@user_location[1])
-    # @destination = params["variable"].split(",").map! {|num| num.to_f }
-    # @destination_location = Geokit::LatLng.new(@destination_location[0],@destination_location[1])
-
+    @user_location = params["variable"].split(",").map! {|num| num.to_f }
+    @starting_location = [@user_location[0],@user_location[1]]
+    @destination_location = [@user_location[2],@user_location[3]]
 
     @user_location_object = Geokit::LatLng.new(40.760785,-73.990422)
     @destination_location_object = Geokit::LatLng.new(40.706308, -74.009253)
@@ -14,6 +12,12 @@ class DirectionsController < ApplicationController
     @user_closest_stations = Route.getDistances(@user_location_object)
     @destination_closest_stations = Route.getDistances(@destination_location_object)
     @closest_stations = Direction.getDirections(@user_closest_stations,@destination_closest_stations, @user_location_object, @destination_location_object)
+    @station_locations = []
+    @closest_stations[0].each do |pair|
+        starting_station = [pair["start"]["station"]["latitude"],pair["start"]["station"]["longitude"]]
+        ending_station = [pair["destination"]["station"]["latitude"],pair["destination"]["station"]["longitude"]]
+        @station_locations.push([[@starting_location,starting_station],[ending_station,@destination_location]])
+    end
   end
 
 end

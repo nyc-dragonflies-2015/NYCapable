@@ -96,7 +96,7 @@ function directions(){
       alert("please fill out an origin and destination")
     } else{
       console.log(destinationPath)
-      // window.location = "http://localhost:3000/directions?variable=" + destinationPath;
+      window.location = "http://localhost:3000/directions?variable=" + destinationPath;
     }
   });
 

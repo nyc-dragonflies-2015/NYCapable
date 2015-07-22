@@ -39,12 +39,13 @@ class Direction < ActiveRecord::Base
 
   def self.getHTML(routes)
     html = []
+    count = 1
     routes.each do |path|
       @station1 = path["start"]["station"].routes.pluck(:route_short_name)
       @station2 = path["destination"]["station"].routes.pluck(:route_short_name)
       @in_common = (@station1 & @station2)
       html << "<div class='panel-group' id='accordion'>
-         <div class='panel panel-default'>
+         <div class='panel2 panel-default'>
         <div class='panel-heading'>
           <h4 class='panel-title'>
             <a data-toggle='collapse' data-parent='#accordion' href='#collapseFive'>
@@ -55,14 +56,15 @@ class Direction < ActiveRecord::Base
 
         <div id='collapseFive' class='panel-collapse collapse in'>
           <div class='panel-body'>
-            <div class='station' id='station#{routes.index(path)}Map'></div>
-            <div id='station#{routes.index(path)}DirectionsPanel'></div>
-            <div id='station#{routes.index(path)}Elevation'></div>
+            <div class='station' id='route#{count}Map'></div>
+            <div id='route#{count}DirectionsPanel'></div>
+            <div id='route#{count}Elevation'></div>
           </div>
         </div>
-        </div>
+        </div>"
 
-        <div class='header-title'><h4>To:<h4></div>
+        count += 1
+      html << "<div class='header-title'><h4>To:<h4></div>
 
         <div class='panel panel-default'>
         <div class='panel-heading'>
@@ -75,12 +77,13 @@ class Direction < ActiveRecord::Base
 
         <div id='collapseFive' class='panel-collapse collapse in'>
           <div class='panel-body'>
-            <div class='station' id='station#{routes.index(path)}Map'></div>
-            <div id='station#{routes.index(path)}DirectionsPanel'></div>
-            <div id='station#{routes.index(path)}Elevation'></div>
+            <div class='station' id='route#{count}Map'></div>
+            <div id='route#{count}DirectionsPanel'></div>
+            <div id='route#{count}Elevation'></div>
           </div>
         </div>
-        </div><br><br>"
+        </div>"
+      count += 1
     end
     return html.join.html_safe
   end
