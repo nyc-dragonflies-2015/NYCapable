@@ -7,20 +7,18 @@ html {
 
 .btn#menu1 {
   position: absolute;
-  margin-top: 1%;
-  margin-left: -12%;
-  margin-bottom: -10%;
-  padding-top: 4.3%;
-  padding-left: 6%;
+  top: 10px;
+  left: 10px;
+  margin-left: -15px;
+  width: 70px;
+  height: 50px;
   opacity: 0.0;
 }
 
 ul.dropdown-menu {
   position:absolute;
-  margin-left: -12%;
-  margin-top: 6%;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  top: 58px;
+  left: -6px;
   width: 30px !important;
 }
 
@@ -29,11 +27,16 @@ ul.dropdown-menu li a {
   padding-right: 0px;
 }
 
+.container-fluid {
+  position: relative;
+}
+
 .logoImg {
-  margin-top: 1%;
-  margin-left: -12%;
-  height: 7%;
-  width: 7%;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 70px;
+  height: auto;
 }
 
 body {

@@ -11,7 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
-  <div class="container">
+  <div class="container-fluid">
+    <%= image_tag("NYCapableLogo.png", :class => "logoImg") %>
     <div class="dropdown">
       <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"></button>
       <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
@@ -20,10 +21,6 @@
         <li role="presentation"><%= link_to "About", about_index_path %></li>
       </ul>
     </div>
-    <%= image_tag("NYCapableLogo.png", :class => "logoImg") %>
-  </div>
-  <br>
-  <div class="container-fluid">
     <div class="row">
       <div class="col-xs-10  col-xs-offset-1 col-md-8 col-md-offset-2"><%= yield %></div>
     </div>
