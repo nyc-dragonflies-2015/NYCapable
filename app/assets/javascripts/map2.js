@@ -6,11 +6,10 @@ $(function() {
   var ORDER_OF_ELEVATION_DIVS = ['station1Elevation', 'bens_elevation_chart', 'station3Elevation', 'station4Elevation', 'station5Elevation'];
   var userData = $('.testing').data("user");
   var userLatLong = new google.maps.LatLng(userData[0], userData[1]);
-  var stations = eval($('.testing').attr('data-stations'))
 
   $(".panel h3").each(function(i, elem){
     $(elem).on('click', function(e){
-      var station = stations[i].station,
+      var station = window.stations[i].station,
        specificLatLong = new google.maps.LatLng(station.latitude, station.longitude),
        map = mapIt(userLatLong, specificLatLong, ORDER_OF_MAP_DIVS[i], ORDER_OF_PANEL_DIVS[i], ORDER_OF_ELEVATION_DIVS[i]);
        setTimeout(function() {
