@@ -1,3 +1,8 @@
+<script type="text/javascript">
+  window.stations = <%= @closest_stations.to_json.html_safe %>;
+  window.user = <%= @user_location %>
+</script>
+
 <div class="routes-page">
 <div class="display-container">
   <span class="closest-stations-summary">
