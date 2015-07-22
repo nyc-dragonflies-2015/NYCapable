@@ -5,7 +5,7 @@ require 'csv'
 
 
 #Routes seed
-CSV.foreach('db/google_transit/routes.txt',
+CSV.foreach('db/fixtures/routes.txt',
   :headers => true,
   :header_converters => :symbol) do |args|
     Route.create(
@@ -21,7 +21,7 @@ CSV.foreach('db/google_transit/routes.txt',
     )
 end
 
-CSV.foreach('db/stations.txt',
+CSV.foreach('db/fixtures/stations.txt',
   :headers => true,
   :header_converters => :symbol) do |args|
     Station.create(
@@ -38,7 +38,7 @@ CSV.foreach('db/stations.txt',
     )
 end
 
-CSV.foreach('db/route_stations.txt',
+CSV.foreach('db/fixtures/route_stations.txt',
   :headers => true,
   :header_converters => :symbol) do |args|
     RouteStation.create(
