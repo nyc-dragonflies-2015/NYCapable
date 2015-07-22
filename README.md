@@ -1,7 +1,7 @@
 #NYCapable
-NYCapable is a project designed to make it easier for commuters to find the closest wheelchair-accessible MTA station. We hope that it will help an underserved population of the city quickly navigate the MTA system. This app provides directions to the 5 closest accessible subway stations from any given location with the exact location of ADA-compliant entrances and elevators. Future features include directions to and from any location and full, real-time status updates.
+NYCapable is a project designed to help commuters find the closest wheelchair-accessible MTA stations. We hope that it will help an underserved population of the city quickly navigate the MTA system. This app provides directions to the 5 closest accessible subway stations from any given location with the exact location of ADA-compliant entrances and elevators. Future features include directions to and from any location and full, real-time status updates.
 
-You can find the current version on Heroku [here](https://nycapable.herokuapp.com/). We believe that this project is just the beginning, and we'd love for you to contribute in a project that can help open up the transit
+You can find the current version on Heroku [here](https://nycapable.herokuapp.com/). We believe that this project is just the beginning, and we'd love for you to contribute to a project that opens up the transit
 system to everyone.
 
 ###The NYCapable Team
@@ -11,7 +11,7 @@ system to everyone.
 - [Denny Tek](https://github.com/tekd)
 
 ###Contributions
-You can find an ongoing list of features for future implementation on the [NYCapable Trello Board](https://trello.com/b/F8JDyx1o/accessible-nyc). If you would like to contribute to the project, feel free to choose a feature and let us know when you're ready to make a pull request. You can also join the [NYCapable Slack Channel](https://accessiblenyc.slack.com/messages/general/) if you've like to give us some feedback or discuss your contribution.
+You can find an ongoing list of features for future implementation on the [NYCapable Trello Board](https://trello.com/b/F8JDyx1o/accessible-nyc). If you would like to contribute to the project, feel free to choose a feature and let us know when you're ready to make a pull request. You can also join the [NYCapable Slack Channel](https://accessiblenyc.slack.com/messages/general/) if you'd like to give us some feedback or discuss your contribution.
 
 ### Installation
 
