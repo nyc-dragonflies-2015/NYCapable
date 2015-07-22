@@ -3,6 +3,7 @@ class Station < ActiveRecord::Base
     has_many :routes, through: :route_stations
 
   def self.print_icons(station)
+    #Station: add nil check to #print_icons because we can't assume that every station will have routes. Harms added this in.
     return "" if station.nil?
     @routes = station.routes.pluck(:route_short_name).partition{|x| x.is_a? String}.map(&:sort).flatten
     html = []
