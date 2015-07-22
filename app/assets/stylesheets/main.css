@@ -34,52 +34,11 @@
 
 #geolocate {
   position: fixed;
-  top: 50%;
-  left: 71%;
-  margin-top: -49px;
-  margin-left: -70px;
-}
-
-#geolocateForDirections {
-  position: fixed;
-  top: 50%;
-  left: 71%;
-  margin-top: -49px;
-  margin-left: -70px;
-}
-
-#find {
-  position: fixed;
   top: 55%;
-  left: 71%;
-  margin-top: -49px;
-  margin-left: -70px;
-}
-
-#directions {
-  position: fixed;
-  top: 55%;
-  left: 71%;
-  margin-top: -49px;
-  margin-left: -70px;
-}
-
-#origin {
-  position: fixed;
-  top: 50%;
-  left: 40%;
   margin-top: -50px;
-  margin-left: -70px;
-  width: 30%;
-}
-
-#destination {
-  position: fixed;
-  top: 55%;
-  left: 40%;
-  margin-top: -50px;
-  margin-left: -70px;
-  width: 30%;
+  width: 8%;
+  left:46%;
+  right:46%;
 }
 
 .mta-bullet {
