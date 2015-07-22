@@ -8,7 +8,8 @@
   <span class="closest-stations-summary">
     <div class="header-title"><h2>Closest stations:<h2></div>
         <div class="panel-group" id="accordion">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><div class="panel panel-default">
+            <div class="panel panel-default">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="text-decoration: none;">
               <div id="data-hack" style="display:none"></div>
                 <div class="panel-heading">
                     <h4 class="panel-title">
@@ -29,7 +30,7 @@
               </div>
             </div>
             <div class="panel panel-default">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" style="text-decoration: none;">
                 <div class="panel-heading">
                     <h4 class="panel-title">
 
@@ -51,7 +52,7 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" style="text-decoration: none;">
                   <div class="panel-heading">
                     <h4 class="panel-title">
 
@@ -71,7 +72,7 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" style="text-decoration: none;">
                   <div class="panel-heading">
                     <h4 class="panel-title">
 
@@ -91,11 +92,11 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" style="text-decoration: none;">
                   <div class="panel-heading">
                     <h4 class="panel-title">
 
-                          <h3 class="stationName"><%= Station.print_icons(@closest_stations[4]["station"])%> || <%= @closest_stations[4]["station"].name %>  || <%= (@closest_stations[4]["distance"]).round(2) %> miles</h3>
+                          <h3 class="stationName" style="text-decoration: none"><%= Station.print_icons(@closest_stations[4]["station"])%> || <%= @closest_stations[4]["station"].name %>  || <%= (@closest_stations[4]["distance"]).round(2) %> miles</h3>
                       </h4>
                   </div>
                 </a>
