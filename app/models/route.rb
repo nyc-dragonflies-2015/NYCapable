@@ -40,20 +40,29 @@ class Route < ActiveRecord::Base
   end
 
   def self.delayed(stations)
-    html = ["<span class='glyphicon glyphicon-warning-sign' aria-hidden='true'></span>"]
-    yes = []
+    html = [" "]
     routes = stations.routes.pluck(:route_short_name).partition{|x| x.is_a? String}.map(&:sort).flatten
     routes.each do |station|
       if Route.find_by(route_short_name: station).service_status != "GOOD SERVICE"
-        yes << "Yes"
+        html << "<span class='glyphicon glyphicon-warning-sign' aria-hidden='true'></span>"
+        return html.join.html_safe
       end
     end
-    if yes.length != 0
-      return html.join.html_safe
-    else
-      return ""
-    end
+    return html.join.html_safe
   end
+
+  def self.display_delays(stations)
+    html = [""]
+    routes = stations.routes.pluck(:route_short_name).partition{|x| x.is_a? String}.map(&:sort).flatten
+    routes.each do |station|
+      status = Route.find_by(route_short_name: station).service_status
+      if status != "GOOD SERVICE"
+          html<< " <span class='mta-bullet mta-#{station.downcase}'>#{station}</span>: #{status} "
+      end
+    end
+    return html.join.html_safe
+  end
+
 
 
 
