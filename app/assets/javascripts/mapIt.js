@@ -6,19 +6,20 @@ function mapIt(person, place, mapDiv, panelDiv, elevationDiv){
     travelMode: google.maps.TravelMode.WALKING
   };
 
-  var mapOptions = {
-    zoom: 8,
-    center: person
-  }
-
-  var map = new google.maps.Map(document.getElementById(mapDiv), mapOptions);
-
   var directionsService = new google.maps.DirectionsService();
 
   var directionsDisplay = new google.maps.DirectionsRenderer();
 
   directionsService.route(request, function(result, status){
     if (status == google.maps.DirectionsStatus.OK){
+
+      var mapOptions = {
+      zoom: 8,
+      center: result.request.destination
+      }
+
+      var map = new google.maps.Map(document.getElementById(mapDiv), mapOptions);
+
       directionsDisplay.setMap(map);
       directionsDisplay.setDirections(result);
       directionsDisplay.setPanel(document.getElementById(panelDiv))
