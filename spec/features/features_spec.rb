@@ -22,18 +22,13 @@ feature 'visit root page' do
 end
 
 feature 'visit routes page' do
-  scenario 'user visits routes page' do
-    visit '/routes?variable=40.7585757,-73.98570899999999'
-    expect(page).to have_content('Closest stations:')
-  end
-
   xscenario 'user should not see station options on initial visit' do
     visit root_path
     expect(page).to have_no_css #add selectors
   end
 
-  scenario 'user should see 5 station options when submitting address' do
-    visit '/routes?variable=40.7585757,-73.98570899999999'
+  scenario 'user should see station options when submitting address' do
+    visit 'routes?variable=40.7062387,-74.00943459999999'
     expect(page).to have_css('.stationName1')
   end
 
