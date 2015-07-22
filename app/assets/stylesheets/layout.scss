@@ -5,7 +5,38 @@ html {
 
 }
 
+.btn#menu1 {
+  position: absolute;
+  margin-top: 1%;
+  margin-left: -12%;
+  margin-bottom: -10%;
+  padding-top: 4.3%;
+  padding-left: 6%;
+  opacity: 0.0;
+}
+
+ul.dropdown-menu {
+  position:absolute;
+  margin-left: -12%;
+  margin-top: 6%;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  width: 30px !important;
+}
+
+ul.dropdown-menu li a {
+  padding-left: 10px;
+  padding-right: 0px;
+}
+
+.logoImg {
+  margin-top: 1%;
+  margin-left: -12%;
+  height: 7%;
+  width: 7%;
+}
+
 body {
   min-height:100%;
-  padding-top: 25px;
+  background: transparent !important;
 }
