@@ -1,4 +1,8 @@
+
 require 'csv'
+#Resets the database before seeding.
+[Route, Station, RouteStation].each{ |klass| klass.destroy_all}
+
 
 #Routes seed
 CSV.foreach('db/google_transit/routes.txt',
