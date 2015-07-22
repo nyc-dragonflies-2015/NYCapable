@@ -13,12 +13,13 @@
                 <div class="panel-heading">
                     <h4 class="panel-title">
 
-                          <h3 class="stationName1"><%= Station.print_icons(@closest_stations[0]["station"])%>  <%= @closest_stations[0]["station"].name %>  (<%= (@closest_stations[0]["distance"]).round(2) %> miles away)</h3>
+                          <h3 class="stationName1"><%= Station.print_icons(@closest_stations[0]["station"])%> <%= Route.delayed(@closest_stations[0]["station"]) %> <%= @closest_stations[0]["station"].name %>  (<%= (@closest_stations[0]["distance"]).round(2) %> miles away)</h3>
 
                     </h4>
                 </div>
               </a>
                 <div id="collapseOne" class="panel-collapse collapse">
+                <%= Route.display_delays(@closest_stations[0]["station"]) %>
                     <div class="panel-body">
 
                       <div class="station" id="station1Map" ></div>
@@ -34,14 +35,14 @@
                     <h4 class="panel-title">
 
 
-                          <h3 class="stationName"><%= Station.print_icons(@closest_stations[1]["station"])%>  <%= @closest_stations[1]["station"].name %>  (<%= (@closest_stations[1]["distance"]).round(2) %> miles away)</h3>
+                          <h3 class="stationName"><%= Station.print_icons(@closest_stations[1]["station"])%> <%= Route.delayed(@closest_stations[1]["station"]) %>  <%= @closest_stations[1]["station"].name %>  (<%= (@closest_stations[1]["distance"]).round(2) %> miles away)</h3>
 
                     </h4>
                 </div>
                 </a>
 
                 <div id="collapseTwo" class="panel-collapse collapse">
-
+                  <%= Route.display_delays(@closest_stations[1]["station"]) %>
                     <div class="panel-body">
 
                                   <div class="station" id="station2Map"></div>
@@ -55,11 +56,12 @@
                   <div class="panel-heading">
                     <h4 class="panel-title">
 
-                          <h3 class="stationName"><%= Station.print_icons(@closest_stations[2]["station"])%>  <%= @closest_stations[2]["station"].name %>  (<%= (@closest_stations[2]["distance"]).round(2) %> miles away)</h3>
+                          <h3 class="stationName"><%= Station.print_icons(@closest_stations[2]["station"])%> <%= Route.delayed(@closest_stations[2]["station"]) %> <%= @closest_stations[2]["station"].name %>  (<%= (@closest_stations[2]["distance"]).round(2) %> miles away)</h3>
                       </h4>
                   </div>
                 </a>
                 <div id="collapseThree" class="panel-collapse collapse">
+                  <%= Route.display_delays(@closest_stations[2]["station"]) %>
                     <div class="panel-body">
 
                           <div class="station" id="station3Map"></div>
@@ -76,11 +78,12 @@
                     <h4 class="panel-title">
 
 
-                           <h3 class="stationName"><%= Station.print_icons(@closest_stations[3]["station"])%>  <%= @closest_stations[3]["station"].name %>  (<%= (@closest_stations[3]["distance"]).round(2) %> miles away)</h3>
+                           <h3 class="stationName"><%= Station.print_icons(@closest_stations[3]["station"])%> <%= Route.delayed(@closest_stations[3]["station"]) %> <%= @closest_stations[3]["station"].name %>  (<%= (@closest_stations[3]["distance"]).round(2) %> miles away)</h3>
                       </h4>
                   </div>
                </a>
                 <div id="collapseFour" class="panel-collapse collapse">
+                  <%= Route.display_delays(@closest_stations[3]["station"]) %>
                     <div class="panel-body">
 
                           <div class="station" id="station4Map"></div>
@@ -95,12 +98,13 @@
                   <div class="panel-heading">
                     <h4 class="panel-title">
 
-                          <h3 class="stationName" style="text-decoration: none"><%= Station.print_icons(@closest_stations[4]["station"])%>  <%= @closest_stations[4]["station"].name %>  (<%= (@closest_stations[4]["distance"]).round(2) %> miles away)</h3>
+                          <h3 class="stationName" style="text-decoration: none"><%= Station.print_icons(@closest_stations[4]["station"])%> <%= Route.delayed(@closest_stations[4]["station"]) %> <%= @closest_stations[4]["station"].name %>  (<%= (@closest_stations[4]["distance"]).round(2) %> miles away)</h3>
                       </h4>
                   </div>
                 </a>
 
                 <div id="collapseFive" class="panel-collapse collapse">
+                  <%= Route.display_delays(@closest_stations[4]["station"]) %>
                     <div class="panel-body">
                               <div class="station" id="station5Map"></div>
                               <div id="station5DirectionsPanel"></div>
