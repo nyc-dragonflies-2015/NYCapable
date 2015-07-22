@@ -7,7 +7,7 @@ $(function() {
   var ORDER_OF_ELEVATION_DIVS = ['station1Elevation', 'bens_elevation_chart', 'station3Elevation', 'station4Elevation', 'station5Elevation'];
   var userLatLong = new google.maps.LatLng(window.user[0], window.user[1]);
 
-  $(".panel h3").each(function(i, elem){
+  $(".panel").each(function(i, elem){
     $(elem).on('click', function(e){
       var station = window.stations[i].station,
        specificLatLong = new google.maps.LatLng(station.latitude, station.longitude),

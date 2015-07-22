@@ -8,15 +8,16 @@
   <span class="closest-stations-summary">
     <div class="header-title"><h2>Closest stations:<h2></div>
         <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><div class="panel panel-default">
               <div id="data-hack" style="display:none"></div>
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+
                           <h3 class="stationName1"><%= Station.print_icons(@closest_stations[0]["station"])%> || <%= @closest_stations[0]["station"].name %>|| <%= (@closest_stations[0]["distance"]).round(2) %> miles</h3>
-                      </a>
+
                     </h4>
                 </div>
+              </a>
                 <div id="collapseOne" class="panel-collapse collapse">
                     <div class="panel-body">
 
@@ -27,17 +28,17 @@
                     </div>
               </div>
             </div>
-
             <div class="panel panel-default">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+
 
                           <h3 class="stationName"><%= Station.print_icons(@closest_stations[1]["station"])%> || <%= @closest_stations[1]["station"].name %>  || <%= (@closest_stations[1]["distance"]).round(2) %> miles</h3>
 
-                      </a>
                     </h4>
                 </div>
+                </a>
 
                 <div id="collapseTwo" class="panel-collapse collapse">
 
@@ -50,15 +51,14 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                  <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
 
                           <h3 class="stationName"><%= Station.print_icons(@closest_stations[2]["station"])%> || <%= @closest_stations[2]["station"].name %>  || <%= (@closest_stations[2]["distance"]).round(2) %> miles</h3>
-
-                      </a>
-                    </h4>
-                </div>
+                      </h4>
+                  </div>
+                </a>
                 <div id="collapseThree" class="panel-collapse collapse">
                     <div class="panel-body">
 
@@ -71,14 +71,15 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                  <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+
 
                            <h3 class="stationName"><%= Station.print_icons(@closest_stations[3]["station"])%> || <%= @closest_stations[3]["station"].name %>  || <%= (@closest_stations[3]["distance"]).round(2) %> miles</h3>
-                       </a>
-                    </h4>
-                </div>
+                      </h4>
+                  </div>
+               </a>
                 <div id="collapseFour" class="panel-collapse collapse">
                     <div class="panel-body">
 
@@ -90,13 +91,14 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading">
+                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                  <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+
                           <h3 class="stationName"><%= Station.print_icons(@closest_stations[4]["station"])%> || <%= @closest_stations[4]["station"].name %>  || <%= (@closest_stations[4]["distance"]).round(2) %> miles</h3>
-                      </a>
-                    </h4>
-                </div>
+                      </h4>
+                  </div>
+                </a>
 
                 <div id="collapseFive" class="panel-collapse collapse">
                     <div class="panel-body">
