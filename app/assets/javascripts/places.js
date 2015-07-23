@@ -8,7 +8,7 @@ function search() {
 
   google.maps.event.addListener(autocomplete, 'place_changed', function() {
     var userInputLocation = [autocomplete.getPlace().geometry.location.lat(),autocomplete.getPlace().geometry.location.lng()]
-    window.location = "http://localhost:3000/routes?variable=" + userInputLocation;
+    window.location = "https://nycapable.herokuapp.com/routes?variable=" + userInputLocation;
   });
 
 }
@@ -19,7 +19,7 @@ function geolocate(){
       var location = [position.coords.latitude, position.coords.longitude]
       console.log(location)
       $( "#geolocate" ).click(function(){
-        window.location = "http://localhost:3000/routes?variable=" + location;
+        window.location = "https://nycapable.herokuapp.com/routes?variable=" + location;
       })
     })
   } else {
