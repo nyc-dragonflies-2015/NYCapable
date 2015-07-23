@@ -19,7 +19,7 @@ function geolocate(){
       var location = [position.coords.latitude, position.coords.longitude]
       console.log(location)
       $( "#geolocate" ).click(function(){
-        window.location = "https://nycapable.herokuapp.com/routes?variable=" + location;
+        window.location = "http://localhost:3000/routes?variable=" + location;
       })
     })
   } else {
